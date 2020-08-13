@@ -12,8 +12,10 @@ $Flame-rgba: rgba(242,88,41,1);
 $Glitter-rgba: rgba(224,234,248,1);
 $Lightslategray-rgba: rgba(121,124,168,1);
 
+$font-family-sans-serif: "Rubik", sans-serif;
 //este color no estaba en palette pero si en un boton
 $secondary-blue: #2e5bff;
+$secondary-gray: #b0bac9;
 
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
@@ -21,7 +23,8 @@ $secondary-blue: #2e5bff;
 $theme-colors: (
     "primary": $Brandeisblue-color,
     "flame": $Flame-color,
-    "secondary-blue": $secondary-blue
+    "secondary-blue": $secondary-blue,
+    "secondary-gray": $secondary-gray
 );
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
