@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'; // "styled-components": "^5.1.1"
-import {ColumnTitle, Badge, CardTitle, CardSubTitle} from '../atoms/Atoms';
+import {ColumnTitle, Badge, CardTitle, CardSubTitle} from '../atoms/atoms';
 
 const CardBase = styled.div`
     width: 266.8px;

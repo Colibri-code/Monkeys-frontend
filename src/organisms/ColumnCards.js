@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'; // "styled-components": "^5.1.1"
-import {ColumnCss} from '../atoms/Atoms';
+import {ColumnCss} from '../atoms/atoms';
 import {Card} from '../molecules/Card'
 
 
