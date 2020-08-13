@@ -6,6 +6,8 @@ const Example = () => {
     return (
         <div>
           <ColumnCards></ColumnCards>
+          <ColumnCards></ColumnCards>
+          <ColumnCards></ColumnCards>
         </div>
       );
     }
