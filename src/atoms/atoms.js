@@ -30,18 +30,32 @@ const Badge = styled.span`
 const CardTitle = styled.span`
     width: 42px;
     height: 18px;
-    font-family: Rubik;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: bold;
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
     color: #2e384d;
+    float: left;
 `;
-// const CardTitle2 = styled.span(CardTitle)`
-    
-// `;
+const CardSubTitle = styled.span`
+    width: 59px;
+    height: 20px;
+    font-family: Rubik;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    color: #8798ad;
+`;
+
+const ColumnCss = styled.div`
+    padding: 10px;
+`;
+
 // const Badge = styled.span`
 
 // `;
@@ -49,12 +63,4 @@ const CardTitle = styled.span`
 // const Badge = styled.span`
 
 // `;
-
-// const Badge = styled.span`
-
-// `;
-
-// const Badge = styled.span`
-
-// `;
-export { Badge, ColumnTitle };
+export {ColumnCss, Badge, ColumnTitle, CardTitle, CardSubTitle };
