@@ -29,4 +29,7 @@ $theme-colors: (
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
-
+// Classes
+.pointer{
+    cursor: pointer;
+}

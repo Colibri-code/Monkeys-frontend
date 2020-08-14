@@ -5,13 +5,16 @@ import React from 'react';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './atoms/main.scss';
 import Example from './examples/examples';
+import Navbar from "./components/navbar";
+import Sidebar from "./components/sidebar";
+import Content from "./containers/content";
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Example></Example>
-      </header>
+      <Sidebar/>
+      <Navbar/>
+      <Content/>
     </div>
   );
 }
