@@ -1,11 +1,9 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-class Button extends React.Component {
-    render() {
-      return (
-        <button className="btn btn-primary">{this.props.name}</button>
-    );
-  }
-}
+const Button = ({ name }) => {
+  return <button className='btn btn-primary'>{name}</button>;
+};
 
 export default Button;

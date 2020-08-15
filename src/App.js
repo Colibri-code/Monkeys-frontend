@@ -1,18 +1,25 @@
-import React from 'react';
-// import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import $ from 'jquery';
 // import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import './atoms/main.scss';
+import './components/atoms/main.scss';
+import AuthContext from './auth/context';
+import Login from './pages/Login';
 import Example from './examples/examples';
+
 function App() {
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Example></Example>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <AuthContext.Provider value={{ user, setUser, loading }}>
+          <Route exact path='/' component={Login} />
+          <Route path='/home' component={Example} />
+        </AuthContext.Provider>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
