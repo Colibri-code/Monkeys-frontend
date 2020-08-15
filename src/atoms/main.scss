@@ -1,3 +1,4 @@
+//en atoms/atoms.js estarán estos colores
 $Egyptianblue-color: #1e2a9c;
 $Midnightblue-color: #15225a;
 $Brandeisblue-color: #0273ff;
@@ -17,16 +18,16 @@ $font-family-sans-serif: "Rubik", sans-serif;
 $secondary-blue: #2e5bff;
 $secondary-gray: #b0bac9;
 
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// Required
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
 
-
-$theme-colors: (
-    "primary": $Brandeisblue-color,
-    "flame": $Flame-color,
-    "secondary-blue": $secondary-blue,
-    "secondary-gray": $secondary-gray
-);
-
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+// Optional
+// @import "../../node_modules/bootstrap/scss/reboot";
+// @import "../../node_modules/bootstrap/scss/type";
+// @import "../../node_modules/bootstrap/scss/images";
+// @import "../../node_modules/bootstrap/scss/code";
+@import "../../node_modules/bootstrap/scss/grid";
 
 

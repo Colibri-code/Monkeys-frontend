@@ -8,6 +8,8 @@ const color = {
     Glitter: '#e0eaf8',
     LightslateGray: '#797ca8'
 }
+
+const rubik = '"Rubik", sans-serif;';
 // The Button from the last section without the interpolations
 const ColumnTitle = styled.span`
     text-transform: uppercase;

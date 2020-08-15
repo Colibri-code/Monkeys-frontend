@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'; // "styled-components": "^5.1.1"
+import styled from 'styled-components';
 import {CardTitle, CardSubTitle, CardBase, CardTexts} from '../atoms/atoms';
 
 const Card = () => {
