@@ -9,8 +9,8 @@ const color = {
     LightslateGray: '#797ca8'
 }
 
-const rubik = '"Rubik", sans-serif;';
-// The Button from the last section without the interpolations
+const rubik = 'Rubik, sans-serif';
+
 const ColumnTitle = styled.span`
     text-transform: uppercase;
     font-size: 12px;
@@ -37,28 +37,28 @@ const Badge = styled.span`
     border-radius: 10px;
 `;
 
-const CardTitle = styled.span`
-    width: 42px;
-    height: 18px;
-    font-size: 15px;
-    font-weight: bold;
+const Texto = styled.span`
     font-stretch: normal;
     font-style: normal;
     line-height: normal;
     letter-spacing: normal;
-    color: #2e384d;
-    float: left;
+    font-family: Rubik, sans-serif;
 `;
-const CardSubTitle = styled.span`
-    width: 59px;
-    height: 20px;
-    font-family: Rubik;
+
+const CardTitle = styled(Texto)`
+    height: 18px;
+    width: 100%;
+    display: block;
     font-size: 15px;
+    font-weight: bold;
+    color: #2e384d;
+    text-align: ${props => props.textAling || "left"};
+`;
+
+const CardSubTitle = styled(CardTitle)`
+    height: 20px;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.47;
-    letter-spacing: normal;
     color: #8798ad;
 `;
 
@@ -70,29 +70,37 @@ const ColumnCss = styled.div`
 
 const CardBase = styled.div`
     width: 266.8px;
+    max-width: 266.8px;
     height: 88px;
+    max-height: 88px;
     border-radius: 5px;
     margin-bottom: 10px;
+    padding: 24px 22px;
     border: 2px solid #eff2fe;
     border-left: 2px solid #1e2a9c;
     background-color: #ffffff;
 `;
 
 const CardTexts = styled.div`
-    margin-top: 24px;
-    margin-left: 22px;
-    float: left;
+    width: 45%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    float: ${props => props.float || "left"};
 `;
+
 
 const TopColumnCss = styled.div`
-
+    margin-bottom: 13px;
 `;
 
-// const Badge = styled.span`
-
-// `;
-
-// const Badge = styled.span`
-
-// `;
-export {ColumnCss, Badge, ColumnTitle, CardTitle, CardSubTitle, CardBase, TopColumnCss, CardTexts };
+export {
+    ColumnCss, 
+    Badge, 
+    ColumnTitle, 
+    CardTitle, 
+    CardSubTitle, 
+    CardBase, 
+    TopColumnCss, 
+    CardTexts 
+};

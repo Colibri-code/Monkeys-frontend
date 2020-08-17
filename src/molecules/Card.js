@@ -7,7 +7,11 @@ const Card = () => {
         <CardBase>
             <CardTexts>
                 <CardTitle>Name</CardTitle>
-                <CardSubTitle>URL://</CardSubTitle>
+                <CardSubTitle>URL://--</CardSubTitle>
+            </CardTexts>
+            <CardTexts float="right">
+                <CardTitle textAling="right">Package</CardTitle>
+                <CardSubTitle textAling="right">PHP 0.0</CardSubTitle>
             </CardTexts>
         </CardBase>
       );
