@@ -1,5 +1,4 @@
 import styled from 'styled-components'; // "styled-components": "^5.1.1"
-import colors from '../base/colors';
 
 // The Button from the last section without the interpolations
 const ColumnTitle = styled.span`
@@ -10,7 +9,7 @@ const ColumnTitle = styled.span`
   font-style: normal;
   line-height: normal;
   letter-spacing: 1.13px;
-  color: ${colors.secondaryGray};
+  color: #b0bac9;
 `;
 
 const Badge = styled.span`

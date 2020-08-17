@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import colors from '../base/colors';
-import { Title, Subtitle } from '../atoms/typography';
+/* import colors from '../base/colors'; */
+/* import { Title, Subtitle } from '../atoms/typography'; */
 import { Image } from '../atoms/main';
 import { MainContent, Content } from '../atoms/login';
 import Monkey from '../../assets/logo/monkey.png';
@@ -23,12 +23,12 @@ const CardBase = () => {
           height='60px'
           ImgComponent={() => <Image src={Logo} width='234px' height='18px' />}
         />
-        <Title color={colors.darkBlue}>Sign In</Title>
-        <Subtitle color={colors.gray}>Please enter your credentials.</Subtitle>
+        {/*  <Title color={colors.darkBlue}>Sign In</Title> */}
+        {/*  <Subtitle color={colors.gray}>Please enter your credentials.</Subtitle> */}
         <LoginForm />
-        <Subtitle color={colors.secondaryGray} align='center'>
+        {/*   <Subtitle color={colors.secondaryGray} align='center'>
           Dont’ have an account? <Link to='/'>Sign up</Link>
-        </Subtitle>
+        </Subtitle> */}
 
         <ImageContainer
           ImgComponent={() => (

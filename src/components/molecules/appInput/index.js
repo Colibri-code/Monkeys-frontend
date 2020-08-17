@@ -1,23 +1,22 @@
 import React from 'react';
 import { useFormikContext } from 'formik';
 
-import { ErrorMessage, FormGroup, Input, Label } from '../../atoms/form';
+import ErrorMessage from '../../atoms/errorMessage';
 
 const AppInput = ({ label, type = 'text', name }) => {
   const { values, handleChange, errors, touched } = useFormikContext();
   return (
-    <FormGroup>
-      <Label>{label}</Label>
-      <Input
+    <div className='form-group'>
+      <label>{label}</label>
+      <input
         value={values[name]}
         name={name}
         type={type}
         onChange={handleChange}
         value={values[name]}
-        border={errors[name] && touched[name] ? true : false}
       />
       {errors[name] && touched[name] && <ErrorMessage error={errors[name]} />}
-    </FormGroup>
+    </div>
   );
 };
 

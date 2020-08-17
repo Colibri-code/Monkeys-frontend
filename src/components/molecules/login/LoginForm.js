@@ -37,7 +37,7 @@ const LoginForm = () => {
         name='password'
         type='password'
       />
-      <Button title='Sign in' />
+      {/* <Button title='Sign in' /> */}
     </AppForm>
   );
 };
