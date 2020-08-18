@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormikContext } from 'formik';
 
-import ErrorMessage from '../../atoms/errorMessage';
+import ErrorMessage from '../errorMessage';
 import './style.scss';
 
 const AppInput = ({ label, type = 'text', name }) => {

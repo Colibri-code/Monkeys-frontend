@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
-import AppInput from '../../components/molecules/appInput';
-import AppForm from '../../components/molecules/appForm';
-import Button from '../../components/atoms/button';
+import AppInput from '../../components/form/appInput';
+import AppForm from '../../components/form/appForm';
+import Button from '../../components/form/button';
 import Google from '../../assets/logo/logo-google.png';
 import Monkey from '../../assets/logo/monkey.png';
 import Logo from '../../assets/logo/logo.png';

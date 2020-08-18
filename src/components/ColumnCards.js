@@ -1,12 +1,7 @@
 import React from 'react';
-import { ColumnCss } from '../atoms/atoms';
-import { Card } from '../molecules/Card';
+import { Card } from './Card';
 
 const ColumnCards = () => {
-  return (
-    <ColumnCss>
-      <Card></Card>
-    </ColumnCss>
-  );
+  return <Card></Card>;
 };
 export { ColumnCards };
