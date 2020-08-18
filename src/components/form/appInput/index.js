@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormikContext } from 'formik';
 
 import ErrorMessage from '../../atoms/errorMessage';
+import './style.scss';
 
 const AppInput = ({ label, type = 'text', name }) => {
   const { values, handleChange, errors, touched } = useFormikContext();
@@ -14,8 +15,9 @@ const AppInput = ({ label, type = 'text', name }) => {
         type={type}
         onChange={handleChange}
         value={values[name]}
+        className={errors[name] && touched[name] && 'danger'}
       />
-      {errors[name] && touched[name] && <ErrorMessage error={errors[name]} />}
+      {errors[name] && touched[name] && <ErrorMessage message={errors[name]} />}
     </div>
   );
 };

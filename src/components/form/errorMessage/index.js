@@ -3,7 +3,7 @@ import React from 'react';
 import './style.scss';
 
 const ErrorMessage = ({ message }) => (
-  <div className='alert-danger'>{message}</div>
+  <div className='error-message'>{message}</div>
 );
 
 export default ErrorMessage;

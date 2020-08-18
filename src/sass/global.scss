@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Rubik;
 }
 
 .container {
@@ -18,6 +19,7 @@
   font-style: normal;
   line-height: 0.94;
   letter-spacing: normal;
+  margin: 10px 0;
 }
 
 .subtitle {
@@ -27,4 +29,26 @@
   font-style: normal;
   line-height: 1.47;
   letter-spacing: normal;
+  color: $gray;
+}
+
+.font-gray {
+  color: $secondary-gray;
+}
+
+form {
+  margin: 10px 0;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.pointer {
+  cursor: pointer;
 }

@@ -1,9 +1,6 @@
 @import './base/colors.scss';
 @import './base/mixins.scss';
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
 
 @import './global.scss';
-
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
-$font-family-sans-serif: 'Rubik', sans-serif;
-
-/* @import '../../../node_modules/bootstrap/scss/bootstrap.scss'; */
