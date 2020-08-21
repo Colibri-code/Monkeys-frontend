@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Rubik;
+}
+
+.container {
+  max-width: 1440px;
+  width: 95%;
+  margin: auto;
+  height: 100vh;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.94;
+  letter-spacing: normal;
+  margin: 10px 0;
+}
+
+.subtitle {
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  color: $gray;
+}
+
+.font-gray {
+  color: $secondary-gray;
+}
+
+form {
+  margin: 10px 0;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.pointer {
+  cursor: pointer;
+}

@@ -1,21 +1,24 @@
-import React from 'react';
-// import logo from './logo.svg';
+import React, { useState } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import $ from 'jquery';
 // import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import './atoms/main.scss';
+import './sass/main.scss';
+import AuthContext from './auth/context';
 import Example from './examples/examples';
-import Navbar from "./components/navbar";
-import Sidebar from "./components/sidebar";
-import Content from "./containers/content";
+import Login from './pages/login';
 
 function App() {
+  const [user, setUser] = useState();
+  const [loading, setLoading] = useState(true);
   return (
-    <div className="App">
-      <Sidebar/>
-      <Navbar/>
-      <Content/>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <AuthContext.Provider value={{ user, setUser, loading }}>
+          <Route exact path='/' component={Login} />
+          <Route path='/home' component={Example} />
+        </AuthContext.Provider>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

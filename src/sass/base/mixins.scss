@@ -1,0 +1,21 @@
+$ipad: 1024px;
+$tablet: 768px;
+$mobile: 450px;
+
+@mixin lg {
+  @media (max-width:#{$ipad}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width:#{$tablet}) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width:#{$mobile}) {
+    @content;
+  }
+}
