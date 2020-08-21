@@ -1,0 +1,88 @@
+.card {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #eff2fe;
+    background-color: #ffffff;
+}
+
+.card-task {
+    border-left: 2px solid #1e2a9c;
+    width: 266.8px;
+    height: 88px;
+}
+
+.card-titles {
+    margin-top: 24px;
+    margin-left: 22px;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.text-right {
+    text-align: right;
+}
+.text-left {
+    text-align: left;
+}
+
+.card-title {
+    width: 42px;
+    height: 18px;
+    font-size: 15px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    display: block;
+    color: #2e384d;
+}
+
+.card-subtitle {
+    width: 59px;
+    height: 20px;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.47;
+    letter-spacing: normal;
+    color: #8798ad;
+}
+.column-title {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.13px;
+    color: #b0bac9;
+}
+
+.Badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #777;
+    border-radius: 10px;
+}
+.ColumnCss {
+    padding: 10px;
+    width: 278,9px;
+    float: left;
+}
+
