@@ -1,0 +1,9 @@
+@import "../../atoms/main.scss";
+.content{
+    min-height: calc(100vh - 80px);
+    min-width: calc(100vw - 100px);
+    margin-top: 80px;
+    margin-left: 80px;
+    display: flex;
+    background: $Glitter-color;
+}

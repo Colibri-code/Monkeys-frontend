@@ -1,0 +1,24 @@
+@import "../../atoms/main.scss";
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,400,600");
+
+.monkeys-sidebar{
+  min-height: 100vh;
+  position: fixed;
+  width: 80px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: white;
+}
+
+
+
+.monkeys-menu{
+  transform: rotateX(180deg) rotateY(0deg) rotateZ(90deg);
+  font-size: 30px;
+}
+
+.font-21{
+  font-size: 21px;
+}
