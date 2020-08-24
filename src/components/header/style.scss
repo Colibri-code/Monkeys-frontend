@@ -1,7 +1,7 @@
 @import  "../../atoms/main.scss";
 
 .Top-Bar {
-    width: 1360px;
+    width: 100vw;
     height: 80px;
     background-color: #ffffff;
    
@@ -10,20 +10,22 @@
 .Logo {
     width: 146px;
     height: 40px;
-    margin-left: 193px; 
+    margin: 25px 0px 20px 193px;
+    position: absolute;
  }
 
 .Parte-1 {
-    font-family: rubik;
+    font-family: $font-family-sans-serif;
     width: 11px;
     height: 12px;
     color:$Midnightblue-color;
 }
 
 .Parte-2 {
+    font-family: $font-family-sans-serif;
     width: 10px;
     height: 13px;
-    color:$brandeisblue-color;
+    color:$Brandeisblue-color;
 }
 
 .notification {
@@ -70,8 +72,9 @@ ul{
     margin:0px;
     padding:0px;
     display:flex;
-    margin-right: 116px;
+    margin: 20px 116px 0px 0px;
     float: right;
+    position: relative;
 }
 
 ul{
@@ -90,6 +93,7 @@ ul{
     
     ul{
       flex-direction: row;
+      margin-top: 50px;
     }
     
     
