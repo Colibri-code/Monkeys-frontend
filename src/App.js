@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import $ from 'jquery';
 // import Popper from 'popper.js';
 import './sass/main.scss';
-import AuthContext from './auth/context';
+import { useAuthContext } from './auth/context';
+import Navbar from './components/navbar/index';
+import Sidebar from './components/sidebar/index';
 import Example from './examples/examples';
 import Login from './pages/login';
+import Project from './pages/project';
 
 function App() {
-  const [user, setUser] = useState();
-  const [loading, setLoading] = useState(true);
+  const [{ user }] = useAuthContext();
   return (
     <BrowserRouter>
       <Switch>
-        <AuthContext.Provider value={{ user, setUser, loading }}>
-          <Route exact path='/' component={Login} />
-          <Route path='/home' component={Example} />
-        </AuthContext.Provider>
+        <>
+          <div className='container'>
+            {!user ? (
+              <Route exact path='/' component={Login} />
+            ) : (
+              <div className='main-content'>
+                <Navbar />
+                <Sidebar />
+                <div className='app'>
+                  <Route exact path='/' component={Project} />
+                </div>
+              </div>
+            )}
+          </div>
+        </>
       </Switch>
     </BrowserRouter>
   );

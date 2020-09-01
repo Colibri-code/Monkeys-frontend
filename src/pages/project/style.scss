@@ -1,0 +1,154 @@
+@import '../../sass/main.scss';
+
+.project-page {
+  padding: 32px 110px;
+  @include md {
+    padding: 20px 60px;
+  }
+  @include sm {
+    padding: 20px 40px;
+  }
+  button {
+    outline-width: 0;
+    border: none;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+  }
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include sm {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.project-name {
+  flex: 1;
+  @include sm {
+    margin-bottom: 10px;
+  }
+  p {
+    color: $Brandeisblue-color;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: normal;
+    span {
+      color: $Midnightblue-color;
+    }
+    strong {
+      font-weight: bold;
+    }
+  }
+}
+
+.project-header-buttons > button {
+  padding: 5px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.75;
+  color: #b6c5ff;
+  border: solid 2px #cad6ff;
+}
+
+.project-header-buttons .active-button {
+  color: #2855ff;
+  background-color: #ccd6fc;
+}
+
+.project-actions {
+  margin: 25px 0;
+}
+
+.project-actions > button {
+  font-size: 12px;
+  font-weight: 600;
+  color: $Midnightblue-color;
+  margin-right: 30px;
+  background-color: white;
+}
+
+.mode-active {
+  color: $Flame-color !important;
+}
+
+.project-mode-active {
+  display: flex;
+  align-items: center;
+  @include sm {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.project-mode-name {
+  flex: 1;
+  @include sm {
+    margin-bottom: 10px;
+  }
+}
+
+.project-mode-name > h3 {
+  font-size: 28px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  color: #2e384d;
+}
+
+.project-mode-buttons {
+  @include sm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  button + button {
+    margin-left: 10px;
+    @include sm {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  }
+}
+
+.project-mode-buttons > button {
+  width: 140px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: #8798ad;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #ffffff;
+  @include sm {
+    width: 100%;
+  }
+}
+
+.project-mode-buttons .share {
+  background-color: $secondary-blue;
+}
+
+.project-tasks {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  @include lg {
+    justify-content: space-evenly;
+  }
+  @include md {
+    justify-content: center;
+  }
+}

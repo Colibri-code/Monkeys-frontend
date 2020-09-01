@@ -27,47 +27,45 @@ const Login = () => {
   };
 
   return (
-    <div className='container'>
-      <div className='login-page'>
-        <div className='main-content'>
-          <div className='content'>
-            <div className='img-container'>
-              <img src={Monkey} alt='monkey' className='monkey' />
-            </div>
-            <div className='img-container'>
-              <img src={Logo} alt='logo' className='logo' />
-            </div>
-            <h2 className='title'>Sign In</h2>
-            <h3 className='subtitle'>Please enter your credentials.</h3>
-            <AppForm
-              initialValues={initialState}
-              validationSchema={validationSchema}
-              onSubmit={onSubmit}
-            >
-              <AppInput label='EMAIL ADDRESS' name='email' />
-              <AppInput
-                label={
-                  <p className='password-label'>
-                    PASSWORD <Link to='/'>Forgot password?</Link>
-                  </p>
-                }
-                name='password'
-                type='password'
-              />
-              <Button title='Sign in' />
-            </AppForm>
-            <div className='dont-have-account'>
-              <h3 className='subtitle font-gray'>
-                Dont’ have an account? <Link to='/'>Sign up</Link>
-              </h3>
-            </div>
-            <div className='img-container'>
-              <img src={Google} alt='google' className='google' />
-            </div>
+    <div className='login-page'>
+      <div className='login-main-content'>
+        <div className='login-content'>
+          <div className='img-container'>
+            <img src={Monkey} alt='monkey' className='monkey' />
+          </div>
+          <div className='img-container'>
+            <img src={Logo} alt='logo' className='logo' />
+          </div>
+          <h2 className='title'>Sign In</h2>
+          <h3 className='subtitle'>Please enter your credentials.</h3>
+          <AppForm
+            initialValues={initialState}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+          >
+            <AppInput label='EMAIL ADDRESS' name='email' />
+            <AppInput
+              label={
+                <p className='password-label'>
+                  PASSWORD <Link to='/'>Forgot password?</Link>
+                </p>
+              }
+              name='password'
+              type='password'
+            />
+            <Button title='Sign in' />
+          </AppForm>
+          <div className='dont-have-account'>
+            <h3 className='subtitle font-gray'>
+              Dont’ have an account? <Link to='/'>Sign up</Link>
+            </h3>
+          </div>
+          <div className='img-container'>
+            <img src={Google} alt='google' className='google' />
           </div>
         </div>
-        <div className='img-background'></div>
       </div>
+      <div className='img-background'></div>
     </div>
   );
 };
