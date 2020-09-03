@@ -12,6 +12,21 @@
   height: 100vh;
 }
 
+.main-content {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-template-rows: 80px 1fr;
+  grid-template-areas:
+    'sidebar navbar'
+    'sidebar app';
+}
+
+.app {
+  grid-area: app;
+  background: #f4f6fc;
+}
+
 .title {
   font-size: 34px;
   font-weight: 300;
@@ -50,5 +65,9 @@ a {
 }
 
 .pointer {
+  cursor: pointer;
+}
+
+button {
   cursor: pointer;
 }
