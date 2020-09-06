@@ -6,20 +6,23 @@ import { RiBarChart2Line } from "react-icons/ri";
 // Local
 import "./style.scss";
 
-function Sidebar(props) {
+function Sidebar() {
   return (
     <div className="monkeys-sidebar">
       <div className="p-4">
         <FiBarChart className="monkeys-menu text-secondary pointer" />
       </div>
       <div className="mt-5">
-        <div className="p-4">
+        {/* ADD CLASS ACTIVE WHEN IS ACTIVE */}
+        <div className="monkeys-menu-item">
           <AiOutlinePlusSquare className="font-21 text-secondary pointer" />
         </div>
-        <div className="p-4">
+        {/* ADD CLASS ACTIVE WHEN IS ACTIVE */}
+        <div className="monkeys-menu-item">
           <RiBarChart2Line className="font-21 text-secondary pointer" />
         </div>
-        <div className="p-4">
+        {/* ADD CLASS ACTIVE WHEN IS ACTIVE */}
+        <div className="monkeys-menu-item">
           <AiFillTool className="font-21 text-secondary pointer" />
         </div>
       </div>
