@@ -12,6 +12,8 @@ function Router() {
       <Switch>
         <Route exact path="/login" component={Login} />
         <PrivateRoute exact path="/" component={Project} />
+        <PrivateRoute exact path="/organizations" component={Project} />
+        <PrivateRoute exact path="/manage-project" component={Project} />
       </Switch>
     </BrowserRouter>
   );

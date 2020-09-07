@@ -1,4 +1,4 @@
-@import '../../sass/main.scss';
+@import "../../sass/main.scss";
 
 .monkeys-sidebar {
   min-height: 100vh;
@@ -6,9 +6,20 @@
   width: 80px;
   position: fixed;
   display: flex;
-  align-items: center;
   flex-direction: column;
   grid-area: sidebar;
+  background: white;
+}
+
+.monkeys-sidebar-expanded {
+  min-height: 100vh;
+  top: 0;
+  width: 216px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  grid-area: sidebar;
+  background: white;
 }
 
 .monkeys-menu {
@@ -20,36 +31,73 @@
   font-size: 21px;
 }
 
-.text-secondary{
+.text-secondary {
   color: $gray;
 }
 
-.p-4{
+.p-4 {
   padding: 20px;
 }
 
-.p-3{
+.p-3 {
   padding: 15px;
 }
 
-.mt-2{
+.mt-2 {
   margin-top: 20px;
 }
 
-.mt-5{
+.ml-1{
+  margin-left: 10px;
+}
+
+.mt-5 {
   margin-top: 50px;
 }
 
-.monkeys-menu-item{
-  height: 56px;
-  width: 80px;
+.absolute-center {
   display: flex;
-  align-items: center;
+  position: absolute;
+  top: 32%;
+  left: 32%;
+}
+
+.absolute-center-expanded {
+  display: flex;
+  position: absolute;
+  top: 32%;
+  left: 16%;
+}
+
+.absolute-center-avatar {
+  display: flex;
+  position: absolute;
+  top: 32%;
+  left: 13.5%;
+}
+.absolute-center-expanded {
+  display: flex;
+  position: absolute;
+  top: 32%;
+  left: 16%;
+}
+
+
+.monkeys-menu-image{
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+.monkeys-sidebar-avatar-img{
+  height: 32px;
+  width: 32px;
+  background: $Egyptianblue-color;
+  border-radius: 8px;
+}
+
+.monkeys-sidebar-welcome-container{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  
-  &.active{
-    opacity: 0.1;
-    background: $secondary-blue;
-    border-left: 5px solid $secondary-blue;
-  }
 }
