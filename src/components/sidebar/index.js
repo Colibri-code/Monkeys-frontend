@@ -8,7 +8,7 @@ import SidebarItem from "./sidebarItem";
 
 // Local
 import "./style.scss";
-import useSidebarActions from "../.././store/sidebar/actions";
+import useSidebarActions from "../../store/sidebar/actions";
 import { useCallback } from "react";
 import MonkeyImage from "../../assets/logo/monkey.png";
 
@@ -34,6 +34,7 @@ function Sidebar() {
       <SidebarItem>
         {sidebarState.isSidebarExpanded ? (
           <img
+            alt="monkeys logo"
             src={MonkeyImage}
             onClick={handleClick}
             className="monkeys-menu-image absolute-center-expanded"
