@@ -19,8 +19,35 @@ $dark-blue: #2e384d;
 $gray: #8798ad;
 
 $theme-colors: (
-  'primary': $Brandeisblue-color,
-  'flame': $Flame-color,
-  'secondary-blue': $secondary-blue,
-  'secondary-gray': $secondary-gray,
+  "primary": $Brandeisblue-color,
+  "flame": $Flame-color,
+  "secondary-blue": $secondary-blue,
+  "secondary-gray": $secondary-gray,
+  "egyptian-blue": $Egyptianblue-color,
+  "midnight-blue": $Midnightblue-color,
+  "glitter": $Glitter-rgba,
+  "lights-slate-gray": $Lightslategray-color,
+  "dark-blue": $dark-blue,
+  "gray": $gray
 );
+
+
+
+@mixin text-builder($name, $color) {
+  // Example monkeys-text-primary
+  .monkeys-text-#{$name} {
+    color: $color;
+  }
+}
+
+@mixin bg-builder($name, $color) {
+  // Example monekeys-bg-primary
+  .monkeys-bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+@each $name, $color in $theme-colors {
+  @include text-builder($name, $color);
+  @include bg-builder($name, $color);
+}
