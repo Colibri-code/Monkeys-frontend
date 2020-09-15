@@ -1,4 +1,5 @@
 import React, {} from "react";
+import { FaShareAlt } from "react-icons/fa";
 
 
 // Local
@@ -18,10 +19,14 @@ function task_detail(props) {
                     </div>
                     <div className="Task-Tag">
                         <a href="#">Task Tag </a><span>Task Tag</span>
-                    </div>
-                    <div className="Task-Name-Here">
-                        <p>Task Name Here<span className="base">Done</span></p>
-   
+                    </div>  
+                    <div className="parent">
+                        <div className="Task-Name-Here left-box">
+                            <p>Task Name Here</p>
+                        </div>
+
+
+
                     </div>
 
                 </div>
@@ -40,9 +45,37 @@ function task_detail(props) {
 
                 </div> 
 
+                <div className="icono">
+                        
+                    <FaShareAlt/>
+                </div>
+
+                <div className="right-box">
+
+
+                    <button className="boton">
+                        Done
+                    </button>
+                    
+                </div>
+
                 <div className = "Card-Base1" >
                     <p className="In-Charge">In Charge</p>
+                    <div className="Oval">
+                        <div className="Online-Status"> <p className="User-Name-Last-Name">User Name Last Name</p></div>
+                    </div>
+                    <p className="Reporter">Reporter</p>
+                    <div className="Oval">
+                        <div className="Online-Status"> <p className="User-Name-Last-Name">User Name Last Name</p></div>
+                    </div>
+
+                    <p className="Task">Task</p>
+
+                    <p className="Task-Tag-II">Task Tag</p>
+                    <p className="Task-Tag-II Task-Black">Task Tag</p>
+
                 </div>
+                
 
             </div>
 
