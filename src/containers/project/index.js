@@ -4,8 +4,11 @@ import "./style.scss";
 import ProjectColumn from "../../components/projectcolumn";
 import Navbar from "../../components/navbar";
 import Sidebar from "../../components/sidebar";
+import Historial from "../../components/historial"
+import useHistorialActions from "../../store/historial/actions"
 
 const Project = () => {
+  const {state: historialState} = useHistorialActions();
   const [mode, setMode] = useState("Issues");
   const actions = [
     "Issues",
@@ -33,6 +36,8 @@ const Project = () => {
       <div className="main-content">
         <Navbar />
         <Sidebar />
+        {historialState.isHistorialVisible && (<Historial/>) }
+        
         <div className="app">
           <div className="project-page">
             <div className="project-header">
