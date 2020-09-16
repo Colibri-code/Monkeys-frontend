@@ -3,8 +3,8 @@ import React, { memo, cloneElement } from "react";
 // Local
 import { AuthStore } from "./auth/store";
 import { SidebarStore } from "./sidebar/store";
-
-const providers = [<AuthStore.Provider />, <SidebarStore.Provider />];
+import {HistorialStore} from "./historial/store"
+const providers = [<AuthStore.Provider />, <SidebarStore.Provider />,<HistorialStore.Provider/>];
 
 const Store = ({ children: initial }) =>
   providers.reduce(

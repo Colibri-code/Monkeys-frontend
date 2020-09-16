@@ -9,15 +9,17 @@ import SidebarItem from "./sidebarItem";
 // Local
 import "./style.scss";
 import useSidebarActions from "../.././store/sidebar/actions";
+import useHistorialActions from "../../store/historial/actions"
 import { useCallback } from "react";
 import MonkeyImage from "../../assets/logo/monkey.png";
 
 function Sidebar() {
   const { state: sidebarState, toggleSidebar } = useSidebarActions();
-
+  const {  toggleHistorial} = useHistorialActions();
   const handleClick = useCallback(
     () => {
       toggleSidebar();
+      toggleHistorial();
     },
     // eslint-disable-next-line
     []
