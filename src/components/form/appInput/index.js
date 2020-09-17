@@ -14,7 +14,6 @@ const AppInput = ({ label, type = 'text', name }) => {
         name={name}
         type={type}
         onChange={handleChange}
-        value={values[name]}
         className={errors[name] && touched[name] && 'danger'}
       />
       {errors[name] && touched[name] && <ErrorMessage message={errors[name]} />}
