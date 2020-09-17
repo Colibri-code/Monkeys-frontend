@@ -2,13 +2,12 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // import $ from 'jquery';
 // import Popper from 'popper.js';
-import './sass/main.scss';
-import { useAuthContext } from './auth/context';
-import Navbar from './components/navbar/index';
-import Sidebar from './components/sidebar/index';
-import Example from './examples/examples';
+import DetailEnviroment from './pages/detailEnviroment';
+import Header from './components/header';
 import Login from './pages/login';
 import Project from './pages/project';
+import Sidebar from './components/sidebar/index';
+import { useAuthContext } from './auth/context';
 
 function App() {
   const [{ user }] = useAuthContext();
@@ -21,10 +20,15 @@ function App() {
               <Route exact path='/' component={Login} />
             ) : (
               <div className='main-content'>
-                <Navbar />
+                <Header />
                 <Sidebar />
                 <div className='app'>
                   <Route exact path='/' component={Project} />
+                  <Route
+                    exact
+                    path='/detail-enviroment'
+                    component={DetailEnviroment}
+                  />
                 </div>
               </div>
             )}

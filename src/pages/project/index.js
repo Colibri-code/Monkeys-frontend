@@ -27,7 +27,7 @@ const Project = () => {
   ];
 
   return (
-    <div className='project-page'>
+    <>
       <div className='project-header'>
         <div className='project-name'>
           <p>
@@ -35,30 +35,33 @@ const Project = () => {
             <strong>App Name</strong>
           </p>
         </div>
-        <div className='project-header-buttons'>
-          <button>All Enviroment</button>
-          <button className='active-button'>Dev Enviroment</button>
+        <span className='project-type'>Public</span>
+        <div className='project-enviroment-buttons'>
+          <button className='env-button'>All Enviroment</button>
+          <button className='env-button env-active'>Dev Enviroment</button>
         </div>
       </div>
-      <div className='project-actions'>
+      <div className='project-filter-container'>
         {actions.map((action, i) => (
           <button
-            onClick={() => setMode(action)}
-            className={mode === action ? 'mode-active' : ''}
             key={i}
+            onClick={() => setMode(action)}
+            className={`project-filter-button ${
+              action === mode ? 'filter-active' : ''
+            } `}
           >
             {action}
           </button>
         ))}
       </div>
-      <div className='project-mode-active'>
+      <div className='project-action-container'>
         <div className='project-mode-name'>
           <h3>Issues</h3>
         </div>
-        <div className='project-mode-buttons'>
+        <div className='project-action-buttons'>
           <button>Complete Sprint</button>
           <button>Edit Boards</button>
-          <button className='share'>Share</button>
+          <button className='ction-button-special'>Share</button>
         </div>
       </div>
       <div className='project-tasks'>
@@ -72,7 +75,7 @@ const Project = () => {
           />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
