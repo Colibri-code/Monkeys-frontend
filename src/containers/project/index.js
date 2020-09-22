@@ -51,21 +51,16 @@ const Project = () => {
         <div className="app">
           <div className="project-page">
             <div className="project-header">
-              <Breadcumb
+              {/* <Breadcumb
                 {...{
-                  items: [
-                    { name: "All Organizations", id: -1 },
-                    { name: "one", id: 1 },
-                    { name: "two", id: 2 },
-                    { name: "three", id: 3 },
-                  ],
+                  items: ,
                   group: "Organization",
                   value: currentOrganization,
                   text: "name",
                   name: "breadCumbFilterOrganization",
                   onChange: handleChange,
                 }}
-              />
+              /> */}
             </div>
 
             <div className="project-actions">
