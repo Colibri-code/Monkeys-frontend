@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 
 import "./style.scss";
 import ProjectColumn from "../../components/projectcolumn";
 import Navbar from "../../components/navbar";
 import Sidebar from "../../components/sidebar";
+import Breadcumb from "../../components/breadcrumb";
 
 const Project = () => {
   const [mode, setMode] = useState("Issues");
+  const [currentOrganization, setCurrentOrganization] = useState({
+    id: -1,
+    name: "All Organizations",
+  });
   const actions = [
     "Issues",
     "Planning",
@@ -28,6 +33,16 @@ const Project = () => {
     { title: "done", color: "#0070ff", number: 28 },
   ];
 
+  const handleChange = useCallback((e) => {
+    switch (e.target.name) {
+      case "breadCumbFilterOrganization":
+        setCurrentOrganization(e.target.value);
+        break;
+      default:
+        break;
+    }
+  }, []);
+
   return (
     <div className="container">
       <div className="main-content">
@@ -36,17 +51,23 @@ const Project = () => {
         <div className="app">
           <div className="project-page">
             <div className="project-header">
-              <div className="project-name">
-                <p>
-                  Organization Name <span>/</span>
-                  <strong>App Name</strong>
-                </p>
-              </div>
-              <div className="project-header-buttons">
-                <button>All Enviroment</button>
-                <button className="active-button">Dev Enviroment</button>
-              </div>
+              <Breadcumb
+                {...{
+                  items: [
+                    { name: "All Organizations", id: -1 },
+                    { name: "one", id: 1 },
+                    { name: "two", id: 2 },
+                    { name: "three", id: 3 },
+                  ],
+                  group: "Organization",
+                  value: currentOrganization,
+                  text: "name",
+                  name: "breadCumbFilterOrganization",
+                  onChange: handleChange,
+                }}
+              />
             </div>
+
             <div className="project-actions">
               {actions.map((action, i) => (
                 <button

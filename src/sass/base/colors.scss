@@ -4,6 +4,8 @@ $Brandeisblue-color: #0273ff;
 $Flame-color: #f25829;
 $Glitter-color: #e0eaf8;
 $Lightslategray-color: #797ca8;
+$white-color: #ffffff;
+$black-color: #000000;
 
 $Egyptianblue-rgba: rgba(30, 42, 156, 1);
 $Midnightblue-rgba: rgba(21, 34, 90, 1);
@@ -17,6 +19,7 @@ $secondary-blue: #2e5bff;
 $secondary-gray: #b0bac9;
 $dark-blue: #2e384d;
 $gray: #8798ad;
+$white-gray: rgba(46, 91, 255, 0.08);
 
 $theme-colors: (
   "primary": $Brandeisblue-color,
@@ -28,7 +31,10 @@ $theme-colors: (
   "glitter": $Glitter-rgba,
   "lights-slate-gray": $Lightslategray-color,
   "dark-blue": $dark-blue,
-  "gray": $gray
+  "gray": $gray,
+  "white": $white-color,
+  "black": $black-color,
+  "white-gray": $white-gray,
 );
 
 
@@ -46,8 +52,49 @@ $theme-colors: (
     background-color: $color;
   }
 }
+@mixin b-builder($name, $color) {
+  // Example monkeys-b-1-white-solid
+  .monkeys-b-1-#{$name}-solid {
+    border: 1px solid $color;
+  }
+
+  // Example monkeys-bl-1-white-solid
+  .monkeys-bl-1-#{$name}-solid {
+    border-left: 1px solid $color;
+  }
+
+  // Example monkeys-br-1-white-solid
+  .monkeys-br-1-#{$name}-solid {
+    border-right: 1px solid $color;
+  }
+
+  // Example monkeys-bb-1-white-solid
+  .monkeys-bb-1-#{$name}-solid {
+    border-bottom: 1px solid $color;
+  }
+
+  // Example monkeys-bt-1-white-solid
+  .monkeys-bt-1-#{$name}-solid {
+    border-top: 1px solid $color;
+  }
+
+  // Example monkeys-bx-1-white-solid
+  .monkeys-bx-1-#{$name}-solid {
+    border-left: 1px solid $color;
+    border-right: 1px solid $color;
+  }
+
+  // Example monkeys-by-1-white-solid
+  .monkeys-bx-1-#{$name}-solid {
+    border-top: 1px solid $color;
+    border-bottom: 1px solid $color;
+  }
+
+  // Repeat the same for other kind of borders
+}
 
 @each $name, $color in $theme-colors {
   @include text-builder($name, $color);
   @include bg-builder($name, $color);
+  @include b-builder($name, $color);
 }
