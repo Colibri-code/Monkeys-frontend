@@ -27,7 +27,7 @@ const Project = () => {
   ];
 
   return (
-    <>
+    <div className='manage-page'>
       <div className='project-header'>
         <div className='project-name'>
           <p>
@@ -75,7 +75,7 @@ const Project = () => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

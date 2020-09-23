@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { FaFolder } from 'react-icons/fa';
 
 import './style.scss';
-import Card from '../../components/enviromentcard';
+import Activitycontainer from '../../components/activitycontainer';
 
-const DetailEnviroment = () => {
+const AllEnviroment = () => {
   const [mode, setMode] = useState('Issues');
   const actions = ['Overview', 'Issues', 'Pull Request'];
   const table = [
@@ -46,30 +46,16 @@ const DetailEnviroment = () => {
         <button>Wiki</button>
         <button className='action-button-special'>Clon</button>
       </div>
-      <div className='enviroment-activity-container'>
-        <h4 className='enviroment-activity-title'>Free | Drupal</h4>
-        <div className='enviroment-card-container'>
-          <Card title='Development URL' />
-          <Card title='Development URL' />
-          <Card title='Development URL' />
-          <Card title='Development URL' />
-        </div>
-      </div>
-      <div className='enviroment-activity-container'>
-        <h4 className='enviroment-activity-title'>gitflow</h4>
-        <div className='enviroment-card-container'>
-          <Card title='Development URL' />
-          <Card title='Development URL' />
-          <Card title='Development URL' />
-          <Card title='Development URL' />
-        </div>
-      </div>
+      <Activitycontainer title='Free | Drupal' />
+      <Activitycontainer title='Gitflow' />
       <div className='enviroment-table-container'>
         <table>
           <thead>
-            <th>Name</th>
-            <th>last commit</th>
-            <th>last update</th>
+            <tr>
+              <th>Name</th>
+              <th>last commit</th>
+              <th>last update</th>
+            </tr>
           </thead>
           <tbody>
             {table.map(({ name, update, commit }, i) => (
@@ -90,4 +76,4 @@ const DetailEnviroment = () => {
   );
 };
 
-export default DetailEnviroment;
+export default AllEnviroment;
