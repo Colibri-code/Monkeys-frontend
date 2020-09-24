@@ -1,9 +1,8 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from 'react';
 
-import actions from "./constants";
+import actions from './constants';
 
 const defaultState = {
-  isAuthenticated: false,
   user: {},
   loading: true,
 };

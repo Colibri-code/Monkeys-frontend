@@ -8,55 +8,13 @@
   }
 }
 
-.enviroment-activity-container {
-  width: 100%;
-  border-radius: 1px;
-  border: solid 1px rgba(46, 91, 255, 0.08);
-  background-color: #ffffff;
-  margin-top: 36px;
-  padding: 32px 24px;
-  padding-bottom: 50px;
-  @include md {
-    width: 85%;
-    margin: 36px auto;
-    padding-bottom: 20px;
-  }
-  @include sm {
-    width: 95%;
-  }
-}
-
-.enviroment-activity-title {
-  font-size: 13px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 1.21px;
-  color: #8798ad;
-  text-transform: uppercase;
-  @include md {
-    text-align: center;
-  }
-}
-
-.enviroment-card-container {
-  margin-top: 28px;
-  display: flex;
-  justify-content: space-between;
-  flex-flow: wrap;
-  @include lg {
-    justify-content: space-around;
-  }
-  @include md {
-    justify-content: center;
-  }
-}
-
 .enviroment-table-container {
   margin-top: 40px;
   padding-bottom: 250px;
   overflow-x: scroll;
+  @include sm {
+    display: none;
+  }
   table {
     width: 100%;
     border-collapse: collapse;

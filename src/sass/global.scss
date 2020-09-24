@@ -219,3 +219,19 @@ button {
 .action-button-special {
   background-color: $secondary-blue !important;
 }
+
+.accordion-icon-container {
+  display: none;
+  @include sm {
+    display: flex;
+  }
+  .accordion-icon {
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+}
+
+.show-tasks {
+  display: block !important;
+}

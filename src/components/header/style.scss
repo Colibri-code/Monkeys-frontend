@@ -1,4 +1,4 @@
-@import '../../atoms/main.scss';
+@import '../../sass/main.scss';
 
 .Top-Bar {
   /*     width: 100vw; */
@@ -14,14 +14,12 @@
 }
 
 .Parte-1 {
-  font-family: $font-family-sans-serif;
   width: 11px;
   height: 12px;
   color: $Midnightblue-color;
 }
 
 .Parte-2 {
-  font-family: $font-family-sans-serif;
   width: 10px;
   height: 13px;
   color: $Brandeisblue-color;
