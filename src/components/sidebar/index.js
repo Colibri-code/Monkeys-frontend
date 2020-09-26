@@ -39,6 +39,7 @@ function Sidebar() {
             src={MonkeyImage}
             onClick={handleClick}
             className='monkeys-menu-image absolute-center-expanded'
+            alt='Monkeys Logo'
           />
         ) : (
           <FiBarChart
