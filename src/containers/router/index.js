@@ -1,20 +1,50 @@
-import React, { memo } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import React, { memo } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-// Components
-import Login from "../login"
-import Project from "../project"
-import PrivateRoute from "./privateRoute";
+// Pages
+import AllEnviroment from '../../pages/allEnviroment';
+import DevEnviroment from '../../pages/devEnviroment';
+import Login from '../../pages/login';
+import Manage from '../../pages/manage';
+
+//components
+import Historial from '../../components/historial';
+import Navbar from '../../components/navbar';
+import Sidebar from '../../components/sidebar';
+
+//
+import useHistorialActions from '../../store/historial/actions';
+import useAuth from '../../store/auth/actions';
 
 function Router() {
+  const {
+    state: { user },
+  } = useAuth();
+
+  const { state: historialState } = useHistorialActions();
   return (
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/login" component={Login} />
-        <PrivateRoute exact path="/" component={Project} />
-        <PrivateRoute exact path="/organizations" component={Project} />
-        <PrivateRoute exact path="/manage-project" component={Project} />
-      </Switch>
+      <div className='container'>
+        {!user ? (
+          <Switch>
+            <Route exact path='/' component={Login} />
+            <Redirect to='/' />
+          </Switch>
+        ) : (
+          <div className='main-content'>
+            <Navbar />
+            <Sidebar />
+            <div className='app'>
+              {historialState.isHistorialVisible && <Historial />}
+              <Switch>
+                <Route exact path='/' component={Manage} />
+                <Route path='/all-enviroment' component={AllEnviroment} />
+                <Route path='/dev-enviroment' component={DevEnviroment} />
+              </Switch>
+            </div>
+          </div>
+        )}
+      </div>
     </BrowserRouter>
   );
 }

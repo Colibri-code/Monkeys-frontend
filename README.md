@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Docker Local Buils
+Need to install docker and docker compose [Installation Guide](https://docs.docker.com/compose/install/)
+
+ * Build container image: `docker build -t monkeys:frontend .`
+ * Run container `docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3001:3000 -e CHOKIDAR_USEPOLLING=true monkeys:frontend`
+
+
 ## Available Scripts
 
 In the project directory, you can run:

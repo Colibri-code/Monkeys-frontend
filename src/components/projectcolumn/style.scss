@@ -33,18 +33,6 @@
   }
 }
 
-.accordion-icon-container {
-  display: none;
-  @include sm {
-    display: flex;
-  }
-  .accordion-icon {
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.4s;
-  }
-}
-
 .project-tasks .title {
   font-size: 12px;
   font-weight: 500;
@@ -55,7 +43,8 @@
   color: $secondary-gray;
   text-transform: uppercase;
   span {
-    padding-left: 20px;
+    margin-left: 20px;
+    padding: 0 5px;
   }
 }
 
@@ -67,8 +56,4 @@
   @include sm {
     display: none;
   }
-}
-
-.show-tasks {
-  display: block !important;
 }

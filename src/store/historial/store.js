@@ -1,20 +1,18 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import React, { createContext, useContext, useReducer } from "react";
 
-import actions from './constants';
+import actions from "./constants";
 
 const defaultState = {
-  user: {},
-  loading: true,
+  isHistorialVisible: false
 };
 
 const reducer = (state = defaultState, action = {}) => {
-  const { type, payload } = action;
+  const { type } = action;
   switch (type) {
-    case actions.SET_USER:
+    case actions.TOGGLE_Historial_BAR:
       return {
         ...state,
-        user: payload,
-        loading: false,
+        isHistorialVisible: !state.isHistorialVisible,
       };
     default: {
       return state;
@@ -34,9 +32,9 @@ export function Provider({ children }) {
   );
 }
 
-export const AuthStore = {
+export const HistorialStore = {
   State,
   Dispatch,
   Provider,
-  useAuthStore: () => [useContext(State), useContext(Dispatch)],
+  useHistorial: () => [useContext(State), useContext(Dispatch)],
 };

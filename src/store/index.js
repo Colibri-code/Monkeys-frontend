@@ -4,11 +4,13 @@ import React, { memo, cloneElement } from "react";
 import { AuthStore } from "./auth/store";
 import { SidebarStore } from "./sidebar/store";
 import { OrganizationStore } from "./organization/store";
+import { HistorialStore } from "./historial/store";
 
 const providers = [
   <AuthStore.Provider />,
   <SidebarStore.Provider />,
   <OrganizationStore.Provider />,
+  <HistorialStore.Provider />,
 ];
 
 const Store = ({ children: initial }) =>

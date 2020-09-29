@@ -1,25 +1,27 @@
-import React, { memo } from "react";
-import { FiBarChart } from "react-icons/fi";
-import { AiFillTool, AiOutlinePlusSquare } from "react-icons/ai";
-import { RiBarChart2Line } from "react-icons/ri";
+import React, { memo } from 'react';
+import { FiBarChart } from 'react-icons/fi';
+import { AiFillTool, AiOutlinePlusSquare } from 'react-icons/ai';
+import { RiBarChart2Line } from 'react-icons/ri';
 
 // Components
-import SidebarItem from "./sidebarItem";
+import SidebarItem from './sidebarItem';
 
 // Local
-import "./style.scss";
-import useSidebarActions from "../../store/sidebar/actions";
-import { useCallback } from "react";
-import MonkeyImage from "../../assets/logo/monkey.png";
+import './style.scss';
+import useSidebarActions from '../.././store/sidebar/actions';
+import useHistorialActions from '../../store/historial/actions';
+import { useCallback } from 'react';
+import MonkeyImage from '../../assets/logo/monkey.png';
 import { useLocation } from "react-router-dom";
 
 function Sidebar() {
   const { state: sidebarState, toggleSidebar } = useSidebarActions();
   const { pathname } = useLocation();
-
+  const { toggleHistorial } = useHistorialActions();
   const handleClick = useCallback(
     () => {
       toggleSidebar();
+      toggleHistorial();
     },
     // eslint-disable-next-line
     []
@@ -29,8 +31,8 @@ function Sidebar() {
     <div
       className={
         sidebarState.isSidebarExpanded
-          ? "monkeys-sidebar-expanded"
-          : "monkeys-sidebar"
+          ? 'monkeys-sidebar-expanded'
+          : 'monkeys-sidebar'
       }
     >
       <div
@@ -40,10 +42,10 @@ function Sidebar() {
       >
         {sidebarState.isSidebarExpanded ? (
           <img
-            alt="monkeys logo"
             src={MonkeyImage}
             onClick={handleClick}
-            className="monkeys-menu-image pointer"
+            className='monkeys-menu-image absolute-center-expanded'
+            alt='Monkeys Logo'
           />
         ) : (
           <FiBarChart
