@@ -13,7 +13,7 @@ const reducer = (state = defaultState, action = {}) => {
     case actions.SET_ORGANIZATION_VAL:
       return {
         ...state,
-        [payload.key]: payload.value,
+        [action.ayload.key]: action.payload.value,
       };
     default: {
       return state;
