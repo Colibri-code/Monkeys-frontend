@@ -15,9 +15,9 @@ const Project = () => {
   ];
 
   const tasks = [
-    { name: 'Tag', date: 'MM/DD/YY' },
-    { name: 'Tag', date: 'MM/DD/YY' },
-    { name: 'Tag', date: 'MM/DD/YY' },
+    {id: 1, name: 'Tag', date: 'MM/DD/YY' },
+    {id: 2, name: 'Tag', date: 'MM/DD/YY' },
+    {id: 3, name: 'Tag', date: 'MM/DD/YY' },
   ];
 
   const columns = [

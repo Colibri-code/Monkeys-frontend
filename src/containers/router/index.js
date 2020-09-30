@@ -1,20 +1,21 @@
-import React, { memo } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import React, { memo } from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 // Pages
-import AllEnviroment from '../../pages/allEnviroment';
-import DevEnviroment from '../../pages/devEnviroment';
-import Login from '../../pages/login';
-import Manage from '../../pages/manage';
+import AllEnviroment from "../../pages/allEnviroment";
+import DevEnviroment from "../../pages/devEnviroment";
+import Login from "../../pages/login";
+import Manage from "../../pages/manage";
 
-//components
-import Historial from '../../components/historial';
-import Navbar from '../../components/navbar';
-import Sidebar from '../../components/sidebar';
+//components  
+import Historial from "../../components/historial";
+import Navbar from "../../components/navbar";
+import Sidebar from "../../components/sidebar";
+import TaskDetail from "../../components/task-detail";
 
-//
-import useHistorialActions from '../../store/historial/actions';
-import useAuth from '../../store/auth/actions';
+// Local
+import useHistorialActions from "../../store/historial/actions";
+import useAuth from "../../store/auth/actions";
 
 function Router() {
   const {
@@ -24,22 +25,23 @@ function Router() {
   const { state: historialState } = useHistorialActions();
   return (
     <BrowserRouter>
-      <div className='container'>
+      <div className="container">
         {!user ? (
           <Switch>
-            <Route exact path='/' component={Login} />
-            <Redirect to='/' />
+            <Route exact path="/" component={Login} />
+            <Redirect to="/" />
           </Switch>
         ) : (
-          <div className='main-content'>
+          <div className="main-content">
             <Navbar />
             <Sidebar />
-            <div className='app'>
+            <div className="app">
               {historialState.isHistorialVisible && <Historial />}
               <Switch>
-                <Route exact path='/' component={Manage} />
-                <Route path='/all-enviroment' component={AllEnviroment} />
-                <Route path='/dev-enviroment' component={DevEnviroment} />
+                <Route exact path="/" component={Manage} />
+                <Route path="/all-enviroment" component={AllEnviroment} />
+                <Route path="/dev-enviroment" component={DevEnviroment} />
+                <Route path="/task-detail/:id" component={TaskDetail} />
               </Switch>
             </div>
           </div>

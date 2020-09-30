@@ -1,87 +1,78 @@
-import React, {} from "react";
-import { FaShareAlt } from "react-icons/fa";
-
+// Third libs
+import React from "react";
+import { BsFolder } from "react-icons/bs";
+import { useParams } from "react-router-dom";
 
 // Local
 import "./style.scss";
 
-function task_detail(props) {
-    return (
+// Components
+import Avatar from "../avatar";
 
-    <main> 
-        <div className="task_detail">
+function TaskDetail() {
+  const { id } = useParams();
+  //use this id to get the data from the backend
 
-            <div className="container">
-                <div className="detail">
-                    <div className="Organization-Name">
-                        <a href="#">Organization Name </a><span className="sl">/</span> <a href="#" className="appName" >App Name </a><span className="public">Public</span>
+  return (
+    <main className="h-100 w-100">
+      <div className="d-flex">
+        <span className="task-tag monkeys-text-flame">Task Tag</span>
+        <span className="task-tag-bolder monkeys-text-midnight-blue monkeys-ml-2">
+          Task Tag
+        </span>
+      </div>
+      <div className="d-flex monkeys-mt-2">
+        <h1 className="task-name monkeys-text-dark-blue">Task Name Here</h1>
+      </div>
+      <div className="d-flex monkeys-mt-3 justify-content-between h-100">
+        {/* TASK DETAIL ONE */}
+        <div className="d-flex flex-column monkeys-bg-white shadow monkeys-p-2 task-detail-one h-100">
+          <span className="task-description monkeys-text-midnight-blue">
+            Task Description
+          </span>
 
-                    </div>
-                    <div className="Task-Tag">
-                        <a href="#">Task Tag </a><span>Task Tag</span>
-                    </div>  
-                    <div className="parent">
-                        <div className="Task-Name-Here left-box">
-                            <p>Task Name Here</p>
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-                <div className = "Card-Base" >
-                    <div className="descripcion">
-                        <p>Task Description Here</p>
-                    </div>
-                    <div className="Lorem-ipsum-dolor-si">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                        <a href="#">Lorem Ipsum is simply dummy</a>
-                    </div>
-
-                    <div>
-                        <i class="fas fa-folder-open" ></i>
-                    </div>
-
-                </div> 
-
-                <div className="icono">
-                        
-                    <FaShareAlt/>
-                </div>
-
-                <div className="right-box">
-
-
-                    <button className="boton">
-                        Done
-                    </button>
-                    
-                </div>
-
-                <div className = "Card-Base1" >
-                    <p className="In-Charge">In Charge</p>
-                    <div className="Oval">
-                        <div className="Online-Status"> <p className="User-Name-Last-Name">User Name Last Name</p></div>
-                    </div>
-                    <p className="Reporter">Reporter</p>
-                    <div className="Oval">
-                        <div className="Online-Status"> <p className="User-Name-Last-Name">User Name Last Name</p></div>
-                    </div>
-
-                    <p className="Task">Task</p>
-
-                    <p className="Task-Tag-II">Task Tag</p>
-                    <p className="Task-Tag-II Task-Black">Task Tag</p>
-
-                </div>
-                
-
+          {/* TASK DETAIL CONTENT */}
+          <div className="d-flex flex-column monkeys-mt-2">
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+              maxime commodi tenetur quidem ipsum quia voluptatem perferendis
+              in, sunt nesciunt officia molestiae delectus deserunt molestias
+              quas assumenda corrupti omnis sit quam! Dolorem expedita quaerat
+              cumque recusandae sunt perferendis doloribus maxime labore quidem
+              similique, cupiditate quam ullam distinctio laudantium. Nobis
+              culpa natus nulla repudiandae nisi odit atque aliquam delectus
+              optio blanditiis, possimus excepturi eaque aut sit, ducimus
+              accusamus voluptates, voluptatibus tenetur quidem provident! Ab
+              tempore similique sint repellendus nulla velit fuga vitae numquam,
+              nam sunt eum? Eveniet fuga similique aut doloremque suscipit at
+              provident quod officiis iste! Alias dolore culpa eius?
             </div>
+            <div className="monkeys-mt-3">
+              <span className="monkeys-text-primary">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat
+                quibusdam harum sunt, aliquid maxime quod.
+              </span>
+            </div>
+          </div>
 
+          {/* TASK DETAIL FOOTER */}
+          <div className="d-flex monkeys-mt-4 align-items-center user-select-none pointer">
+            <BsFolder />
+            <span className="monkeys-ml-2 monkeys-text-midnight-blue">
+              assets
+            </span>
+          </div>
         </div>
-    </main >
-    );
+        {/* TASK DETAIL TWO */}
+        <div className="d-flex flex-column monkeys-bg-white shadow monkeys-p-2 task-detail-two h-100">
+          <span className="task-detail-two-header">In Charge</span>
+          <div className="d-flex align-items-center">
+            <Avatar />
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 }
 
-export default (task_detail);
+export default TaskDetail;
