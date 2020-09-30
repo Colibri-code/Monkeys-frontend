@@ -24,9 +24,9 @@ function TaskDetail() {
       <div className="d-flex monkeys-mt-2">
         <h1 className="task-name monkeys-text-dark-blue">Task Name Here</h1>
       </div>
-      <div className="d-flex monkeys-mt-3 justify-content-between h-100 w-100">
+      <div className="d-flex monkeys-mt-3 justify-content-between h-100 w-100 task-detail-container">
         {/* TASK DETAIL ONE */}
-        <div className="d-flex flex-column monkeys-bg-white shadow monkeys-p-2 task-detail-one h-100">
+        <div className="d-flex flex-column monkeys-bg-white shadow monkeys-p-3 task-detail-one">
           <span className="task-description monkeys-text-midnight-blue">
             Task Description
           </span>
@@ -64,10 +64,19 @@ function TaskDetail() {
           </div>
         </div>
         {/* TASK DETAIL TWO */}
-        <div className="d-flex flex-column monkeys-bg-white shadow monkeys-p-2 task-detail-two h-100">
+        <div className="d-flex flex-column monkeys-bg-white shadow monkeys-p-3 task-detail-two">
           <span className="task-detail-two-header">In Charge</span>
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center monkeys-mt-2">
             <Avatar />
+            <span className="task-detail-username monkeys-ml-1">
+              User Name Last Name
+            </span>
+          </div>
+          <div className="d-flex align-items-center monkeys-mt-2">
+            <Avatar />
+            <span className="task-detail-username monkeys-ml-1">
+              User Name Last Name
+            </span>
           </div>
         </div>
       </div>

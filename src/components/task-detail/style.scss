@@ -1,6 +1,40 @@
 // new
 @import "../../sass/main.scss";
 
+@include xs-monkeys {
+  .task-detail-one {
+    width: 100%;
+    height: 100%;
+  }
+  .task-detail-two {
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+  }
+  .task-detail-container {
+    flex-direction: column;
+  }
+}
+@include sm-monkeys {
+  .task-detail-one {
+    width: 50%;
+    height: 100%;
+  }
+  .task-detail-two {
+    height: 100%;
+    width: 40%;
+  }
+}
+@include md-monkeys {
+  .task-detail-one {
+    width: 73%;
+    height: 100%;
+  }
+  .task-detail-two {
+    height: 100%;
+    width: 25%;
+  }
+}
 .task-tag {
   margin-right: 52px;
   width: 52px;
@@ -52,23 +86,6 @@
   letter-spacing: normal;
 }
 
-.task-detail-one {
-  @include sm {
-    width: 100%;
-  }
-  @include lg {
-    width: 60%;
-  }
-}
-.task-detail-two {
-  @include sm {
-    width: 100%;
-  }
-  @include lg {
-    width: 30%;
-  }
-}
-
 .task-assets {
   width: 37px;
   height: 14px;
@@ -81,7 +98,7 @@
   letter-spacing: normal;
 }
 
-.task-detail-two-header{
+.task-detail-two-header {
   width: 54px;
   height: 14px;
   font-family: Rubik;
@@ -92,7 +109,6 @@
   line-height: normal;
   letter-spacing: normal;
 }
-
 
 .task-detail-username {
   width: 127px;

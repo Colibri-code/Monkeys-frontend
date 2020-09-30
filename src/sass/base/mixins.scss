@@ -19,3 +19,40 @@ $mobile: 450px;
     @content;
   }
 }
+
+// CORRECT BREAKPOINT
+
+/* Extra small devices (phones, 600px and down) */
+@mixin xs-monkeys {
+  @media only screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@mixin sm-monkeys {
+  @media only screen and (min-width: 600px) {
+    @content;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@mixin md-monkeys {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@mixin lg-monkeys {
+  @media only screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@mixin xl-monkeys{
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
