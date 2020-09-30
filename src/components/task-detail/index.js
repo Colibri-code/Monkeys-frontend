@@ -1,6 +1,7 @@
 // Third libs
 import React from "react";
 import { BsFolder } from "react-icons/bs";
+import { FaShareAlt } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 
 // Local
@@ -14,15 +15,32 @@ function TaskDetail() {
   //use this id to get the data from the backend
 
   return (
-    <main className="h-100 w-100 monkeys-p-5">
+    <main className="monkeys-p-5">
       <div className="d-flex">
         <span className="task-tag monkeys-text-flame">Task Tag</span>
         <span className="task-tag-bolder monkeys-text-midnight-blue monkeys-ml-2">
           Task Tag
         </span>
       </div>
-      <div className="d-flex monkeys-mt-2">
+      <div className="d-flex monkeys-mt-5 justify-content-between aling-items-center">
         <h1 className="task-name monkeys-text-dark-blue">Task Name Here</h1>
+        <div className="d-flex align-items-center">
+          <FaShareAlt className="monkeys-text-gray pointer" />
+          <div className="monkeys-p-1">
+            <button className="task-detail-button d-flex align-items-center justify-content-center">
+              <div
+                className="monkeys-bg-secondary-blue position-absolute h-100 w-100 task-detail-button-op"
+                style={{ zIndex: 1 }}
+              />
+              <span
+                className="monkeys-text-special-blue position-absolute"
+                style={{ zIndex: 2 }}
+              >
+                Done
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
       <div className="d-flex monkeys-mt-3 justify-content-between h-100 w-100 task-detail-container">
         {/* TASK DETAIL ONE */}
@@ -72,12 +90,20 @@ function TaskDetail() {
               User Name Last Name
             </span>
           </div>
-          <div className="d-flex align-items-center monkeys-mt-2">
+          <span className="task-detail-two-header monkeys-mt-2">Reporter</span>
+          <div className="d-flex align-items-center">
             <Avatar />
             <span className="task-detail-username monkeys-ml-1">
               User Name Last Name
             </span>
           </div>
+          <span className="task-detail-two-header monkeys-mt-4">Task</span>
+          <span className="task-tag monkeys-text-flame monkeys-mt-2">
+            Task Tag
+          </span>
+          <span className="task-tag-bolder monkeys-text-midnight-blue monkeys-mt-2">
+            Task Tag
+          </span>
         </div>
       </div>
     </main>
