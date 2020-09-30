@@ -14,7 +14,7 @@ const AllEnviroment = () => {
   ];
 
   return (
-    <div className='detail-enviroment-page'>
+    <div className='detail-enviroment-page monkeys-p-5'>
       <div className='project-header'>
         <div className='project-name'>
           <p>

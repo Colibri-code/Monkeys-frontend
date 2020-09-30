@@ -14,7 +14,7 @@ function TaskDetail() {
   //use this id to get the data from the backend
 
   return (
-    <main className="h-100 w-100">
+    <main className="h-100 w-100 monkeys-p-5">
       <div className="d-flex">
         <span className="task-tag monkeys-text-flame">Task Tag</span>
         <span className="task-tag-bolder monkeys-text-midnight-blue monkeys-ml-2">
@@ -24,7 +24,7 @@ function TaskDetail() {
       <div className="d-flex monkeys-mt-2">
         <h1 className="task-name monkeys-text-dark-blue">Task Name Here</h1>
       </div>
-      <div className="d-flex monkeys-mt-3 justify-content-between h-100">
+      <div className="d-flex monkeys-mt-3 justify-content-between h-100 w-100">
         {/* TASK DETAIL ONE */}
         <div className="d-flex flex-column monkeys-bg-white shadow monkeys-p-2 task-detail-one h-100">
           <span className="task-description monkeys-text-midnight-blue">

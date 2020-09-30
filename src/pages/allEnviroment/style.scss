@@ -1,6 +1,8 @@
 @import '../../sass/main.scss';
 
 .detail-enviroment-page {
+  height: 100%;
+  width: 100%;
   .project-action-buttons > button {
     @include md {
       width: 100%;

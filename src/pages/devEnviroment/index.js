@@ -7,7 +7,7 @@ const DevEnviroment = () => {
   const [mode, setMode] = useState('Overview');
   const actions = ['Overview', 'DataBases', 'Users & SSH Keys'];
   return (
-    <div className='dev-enviroment-page'>
+    <div className='dev-enviroment-page monkeys-p-5'>
       <div className='project-header'>
         <div className='project-name'>
           <p>
