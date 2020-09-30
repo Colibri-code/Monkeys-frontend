@@ -4,37 +4,62 @@
 @include xs-monkeys {
   .task-detail-one {
     width: 100%;
-    height: 100%;
+    min-height: 58vh;
   }
   .task-detail-two {
     margin-top: 10px;
     width: 100%;
-    height: 100%;
+    min-height: 58vh;
   }
   .task-detail-container {
     flex-direction: column;
   }
 }
+
 @include sm-monkeys {
   .task-detail-one {
-    width: 50%;
-    height: 100%;
+    width: 54%;
+    min-height: 58vh;
   }
   .task-detail-two {
-    height: 100%;
+    min-height: 58vh;
     width: 40%;
   }
 }
+
 @include md-monkeys {
   .task-detail-one {
-    width: 73%;
-    height: 100%;
+    width: 67%;
+    min-height: 58vh;
   }
   .task-detail-two {
-    height: 100%;
-    width: 25%;
+    min-height: 58vh;
+    width: 30%;
   }
 }
+
+@include lg-monkeys {
+  .task-detail-one {
+    width: 67%;
+    min-height: 58vh;
+  }
+  .task-detail-two {
+    min-height: 58vh;
+    width: 30%;
+  }
+}
+
+@include xl-monkeys {
+  .task-detail-one {
+    width: 77%;
+    min-height: 58vh;
+  }
+  .task-detail-two {
+    min-height: 58vh;
+    width: 20%;
+  }
+}
+
 .task-tag {
   margin-right: 52px;
   width: 52px;
@@ -120,4 +145,18 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
+}
+
+
+.task-detail-button{
+  position: relative;
+  width: 155px;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: none;
+}
+
+.task-detail-button-op{
+  opacity: 0.2;
 }

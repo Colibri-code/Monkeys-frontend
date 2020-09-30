@@ -15,6 +15,7 @@ $Glitter-rgba: rgba(224, 234, 248, 1);
 $Lightslategray-rgba: rgba(121, 124, 168, 1);
 
 //este color no estaba en palette pero si en un boton
+$special-blue: #006dff;
 $secondary-blue: #2e5bff;
 $secondary-gray: #b0bac9;
 $dark-blue: #2e384d;
@@ -35,6 +36,7 @@ $theme-colors: (
   "white": $white-color,
   "black": $black-color,
   "white-gray": $white-gray,
+  "special-blue": $special-blue,
 );
 
 
