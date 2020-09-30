@@ -23,7 +23,9 @@ function TaskDetail() {
         </span>
       </div>
       <div className="d-flex monkeys-mt-5 justify-content-between aling-items-center">
-        <h1 className="task-name monkeys-text-dark-blue">Task Name Here</h1>
+        <h1 className="task-name monkeys-text-dark-blue">
+          Task Name {id}
+        </h1>
         <div className="d-flex align-items-center">
           <FaShareAlt className="monkeys-text-gray pointer" />
           <div className="monkeys-p-1">
