@@ -1,8 +1,10 @@
 import React, { memo } from "react";
 import { FaBell, FaCog, FaSearch } from "react-icons/fa";
-
 // Local
 import "./style.scss";
+
+// Components
+import Avatar from "../avatar";
 
 function Navbar() {
   return (
@@ -24,10 +26,7 @@ function Navbar() {
             <FaBell className="pointer text-secondary" />
           </div>
           <div className="ml-2 d-flex align-items-center justify-content-center">
-            <div className="avatar-icon-container">
-              <span className="avatar-icon"></span>
-              <span className="avatar-status"></span>
-            </div>
+            <Avatar />
           </div>
         </div>
       </div>

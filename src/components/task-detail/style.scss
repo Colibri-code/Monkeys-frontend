@@ -1,58 +1,66 @@
-.task_detail {
-  width: 100%;
-  height: 1400px;
-  background-color: #f4f6fc;
-  
-  
-}
-.detail{
-  margin-right: 101px;
-  margin-left: 197px;
-  height: 191px;
+// new
+@import "../../sass/main.scss";
 
-}
-.detail a{
-  text-decoration: none;
-}
-.appName{
-  font-weight: bold;
-  color: #15225a;
-}
-.Organization-Name{
-
-  padding-top: 37px;
-  font-size: 16px;
-  color: #0273ff;
-
+@include xs-monkeys {
+  .task-detail-one {
+    width: 100%;
+    min-height: 58vh;
+  }
+  .task-detail-two {
+    margin-top: 10px;
+    width: 100%;
+    min-height: 58vh;
+  }
+  .task-detail-container {
+    flex-direction: column;
+  }
 }
 
-.public {
-
-  width: 100px;
-  height: 22px;
-  background-color: #ffffff;
-  padding: 0 13px 0 13px;
-  border: 2px solid f4f6fc;
-  border-radius: 10px;
-  text-align: center;
-
-  width: 36px;
-  height: 14px;
-  font-family: Rubik;
-  font-size: 12px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #606972;
+@include sm-monkeys {
+  .task-detail-one {
+    width: 54%;
+    min-height: 58vh;
+  }
+  .task-detail-two {
+    min-height: 58vh;
+    width: 40%;
+  }
 }
-.Task-Tag{
-  margin: 27px 0 24px 0;
 
+@include md-monkeys {
+  .task-detail-one {
+    width: 67%;
+    min-height: 58vh;
+  }
+  .task-detail-two {
+    min-height: 58vh;
+    width: 30%;
+  }
 }
-.Task-Tag a{
+
+@include lg-monkeys {
+  .task-detail-one {
+    width: 67%;
+    min-height: 58vh;
+  }
+  .task-detail-two {
+    min-height: 58vh;
+    width: 30%;
+  }
+}
+
+@include xl-monkeys {
+  .task-detail-one {
+    width: 77%;
+    min-height: 58vh;
+  }
+  .task-detail-two {
+    min-height: 58vh;
+    width: 20%;
+  }
+}
+
+.task-tag {
   margin-right: 52px;
   width: 52px;
   height: 14px;
@@ -63,11 +71,22 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #f25829;
 }
 
-.Task-Name-Here{
+.task-tag-bolder {
+  width: 52px;
+  height: 14px;
+  font-family: Rubik;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #15225a;
+}
 
+.task-name {
   width: 207px;
   height: 32px;
   font-family: Rubik;
@@ -78,81 +97,10 @@
   line-height: 1.14;
   letter-spacing: normal;
   color: #2e384d;
-
 }
 
-.icono{
-  width: 21px;
-  height: 24px;
-  font-family: FontAwesome5FreeSolid;
-  font-size: 24px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #bfc5d2;
-
-  position: absolute;
-  top: 139px;
-  left: 1156px;
-
-}
-
-.right-box{
-  position: absolute;
-  top: 136px;
-  left: 1200px;
-
-  width: 140px;
-  height: 31px;
-  opacity: 0.2;
-  border-radius: 4px;
-  background-color: #2e5bff;
-}
-.boton{
-  border: none;
-  font-family: Rubik;
-  font-size: 12px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.75;
-  letter-spacing: normal;
-  background-color: #2e5bff;
-  color: #ffffff;
-  margin: 5px 0 0 50px;
-}
-
-
-
-.Card-Base {
-  margin-left: 117px;
-
-  width: 826px;
-  height: 1115px;
-  margin: 0 11px 0 197px;
-  float: left;
-  display: inline;
-  border-radius: 1px;
-  border: solid 1px rgba(46, 91, 255, 0.08);
-  background-color: #ffffff;
-}
-.Card-Base1 {
-  width: 301px;
-  height: 1115px;
-  margin-right: 348px;
-  float: right;
-
-
-  border-radius: 1px;
-  border: solid 1px rgba(46, 91, 255, 0.08);
-  background-color:#ffffff;
-
-
-}
-.descripcion{
-  margin: 26px 631px 24px 25px;
+.task-description {
+  width: 170px;
   height: 19px;
   font-family: Rubik;
   font-size: 16px;
@@ -161,32 +109,21 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #15225a;
 }
-.Lorem-ipsum-dolor-si {
-  margin: 24px 30px 776px 30px;
-  width: 766px;
-  height: 270px;
+
+.task-assets {
+  width: 37px;
+  height: 14px;
   font-family: Rubik;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 2.14;
+  line-height: normal;
   letter-spacing: normal;
-  color: #15225a;
-}
-.Lorem-ipsum-dolor-si a{
-  padding-top: 100%;
-
-}
-#folder {
-  width: 17px;
-  height: 16px;
-  background-color: #2e5bff;
 }
 
-.In-Charge {
+.task-detail-two-header {
   width: 54px;
   height: 14px;
   font-family: Rubik;
@@ -196,27 +133,9 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #15225a;
-  margin: 30px 217px 15px 30px;
-}
-.Oval {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #15225a;
-  margin-left:30px;
 }
 
-.Online-Status {
-  width: 12px;
-  height: 11px;
-  border: solid 2px #ffffff;
-  border-radius:50%;
-  left: 30px;
-  background-color: #0273ff;
-  float: right;
-}
-.User-Name-Last-Name {
+.task-detail-username {
   width: 127px;
   height: 14px;
   font-family: Rubik;
@@ -226,50 +145,18 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #15225a;
-  margin: 12px 217px 15px 30px;
-}
-.Reporter{
-  width: 50px;
-  height: 14px;
-  font-family: Rubik;
-  font-size: 12px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #15225a;
-  margin: 29px 221px 15px 30px; 
-}
-.Task{
-  width: 26px;
-  height: 14px;
-  font-family: Rubik;
-  font-size: 12px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #15225a;
-  margin: 30px 145px 0 30px;
-}
-.Task-Tag-II{
-  width: 52px;
-  height: 14px;
-  font-family: Rubik;
-  font-size: 12px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #f25829;
-  margin: 15px 219px 0 30px;
-
-}
-.Task-Black{
-  color: #15225a;
 }
 
+
+.task-detail-button{
+  position: relative;
+  width: 155px;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: none;
+}
+
+.task-detail-button-op{
+  opacity: 0.2;
+}

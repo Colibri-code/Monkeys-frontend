@@ -12,9 +12,11 @@ import useSidebarActions from '../.././store/sidebar/actions';
 import useHistorialActions from '../../store/historial/actions';
 import { useCallback } from 'react';
 import MonkeyImage from '../../assets/logo/monkey.png';
+import { useLocation } from "react-router-dom";
 
 function Sidebar() {
   const { state: sidebarState, toggleSidebar } = useSidebarActions();
+  const { pathname } = useLocation();
   const { toggleHistorial } = useHistorialActions();
   const handleClick = useCallback(
     () => {
@@ -33,7 +35,11 @@ function Sidebar() {
           : 'monkeys-sidebar'
       }
     >
-      <SidebarItem>
+      <div
+        className={`monkeys-px-4 monkeys-py-3 h-100 w-100 d-flex align-items-center justify-content-${
+          sidebarState.isSidebarExpanded ? "start" : "center"
+        }`}
+      >
         {sidebarState.isSidebarExpanded ? (
           <img
             src={MonkeyImage}
@@ -44,55 +50,88 @@ function Sidebar() {
         ) : (
           <FiBarChart
             onClick={handleClick}
-            className={`font-21 monkeys-menu text-secondary ${
-              sidebarState.isSidebarExpanded
-                ? 'absolute-center-expanded'
-                : 'absolute-center'
-            }`}
+            className="monkeys-menu-icon monkeys-text-gray pointer"
           />
         )}
-      </SidebarItem>
-      <div className='mt-5'>
+      </div>
+      <div className="monkeys-mt-5">
         {sidebarState.isSidebarExpanded && (
           <SidebarItem>
-            <div className='absolute-center-avatar'>
-              <div className='monkeys-sidebar-avatar-img' />
-              <div className='monkeys-sidebar-welcome-container ml-1'>
+            <div
+              className={`d-flex monkeys-py-2 monkeys-pl-4 monkeys-pt-4 monkeys-pb-4 align-items-center justify-content-${
+                sidebarState.isSidebarExpanded ? "start" : "center"
+              } position-absolute h-100 w-100`}
+            >
+              <div className="monkeys-sidebar-avatar-img" />
+              <div className="monkeys-ml-1 d-flex flex-column">
                 <span>Welcome</span>
-                <span className='text-secondary'>Nombre de usuario</span>
+                <span className="monkeys-text-gray">Nombre de usuario</span>
               </div>
             </div>
           </SidebarItem>
         )}
-        <SidebarItem pathname='/'>
-          <div
-            className={
-              sidebarState.isSidebarExpanded
-                ? 'absolute-center-expanded'
-                : 'absolute-center'
-            }
-          >
-            <AiOutlinePlusSquare className='font-21 text-secondary' />
-          </div>
-        </SidebarItem>
-        <SidebarItem pathname='/organizations'>
-          <RiBarChart2Line
-            className={`font-21 text-secondary ${
-              sidebarState.isSidebarExpanded
-                ? 'absolute-center-expanded'
-                : 'absolute-center'
-            }`}
-          />
-        </SidebarItem>
-        <SidebarItem pathname='/manage-project'>
-          <AiFillTool
-            className={`font-21 text-secondary absolute-center ${
-              sidebarState.isSidebarExpanded
-                ? 'absolute-center-expanded'
-                : 'absolute-center'
-            }`}
-          />
-        </SidebarItem>
+        <div className="monkeys-mt-4">
+          <SidebarItem pathname="/">
+            <div
+              className={`d-flex monkeys-py-2 monkeys-px-4 align-items-center justify-content-${
+                sidebarState.isSidebarExpanded ? "start" : "center"
+              } position-absolute h-100 w-100`}
+            >
+              <AiOutlinePlusSquare className="monkeys-f-4 monkeys-text-gray" />
+              {sidebarState.isSidebarExpanded && (
+                <div
+                  className={`monkeys-ml-1 ${
+                    pathname === "/"
+                      ? "monkeys-text-secondary-blue"
+                      : "monkeys-text-secondary-gray"
+                  }`}
+                >
+                  Apps
+                </div>
+              )}
+            </div>
+          </SidebarItem>
+          <SidebarItem pathname="/organizations">
+            <div
+              className={`d-flex monkeys-py-2 monkeys-px-4 align-items-center justify-content-${
+                sidebarState.isSidebarExpanded ? "start" : "center"
+              } position-absolute h-100 w-100`}
+            >
+              <RiBarChart2Line className="monkeys-f-4 monkeys-text-gray" />
+              {sidebarState.isSidebarExpanded && (
+                <div
+                  className={`monkeys-ml-1 ${
+                    pathname === "/organizations"
+                      ? "monkeys-text-secondary-blue"
+                      : "monkeys-text-secondary-gray"
+                  }`}
+                >
+                  Organizations
+                </div>
+              )}
+            </div>
+          </SidebarItem>
+          <SidebarItem pathname="/manage-project">
+            <div
+              className={`d-flex monkeys-py-2 monkeys-px-4 align-items-center justify-content-${
+                sidebarState.isSidebarExpanded ? "start" : "center"
+              } position-absolute h-100 w-100`}
+            >
+              <AiFillTool className="monkeys-f-4 monkeys-text-gray" />
+              {sidebarState.isSidebarExpanded && (
+                <div
+                  className={`monkeys-ml-1 ${
+                    pathname === "/manage-project"
+                      ? "monkeys-text-secondary-blue"
+                      : "monkeys-text-secondary-gray"
+                  }`}
+                >
+                  Manage Project
+                </div>
+              )}
+            </div>
+          </SidebarItem>
+        </div>
       </div>
     </div>
   );

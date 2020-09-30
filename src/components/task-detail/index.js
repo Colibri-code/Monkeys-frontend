@@ -1,87 +1,115 @@
-import React, {} from "react";
+// Third libs
+import React from "react";
+import { BsFolder } from "react-icons/bs";
 import { FaShareAlt } from "react-icons/fa";
-
+import { useParams } from "react-router-dom";
 
 // Local
 import "./style.scss";
 
-function task_detail(props) {
-    return (
+// Components
+import Avatar from "../avatar";
 
-    <main> 
-        <div className="task_detail">
+function TaskDetail() {
+  const { id } = useParams();
+  //use this id to get the data from the backend
 
-            <div className="container">
-                <div className="detail">
-                    <div className="Organization-Name">
-                        <a href="#">Organization Name </a><span className="sl">/</span> <a href="#" className="appName" >App Name </a><span className="public">Public</span>
-
-                    </div>
-                    <div className="Task-Tag">
-                        <a href="#">Task Tag </a><span>Task Tag</span>
-                    </div>  
-                    <div className="parent">
-                        <div className="Task-Name-Here left-box">
-                            <p>Task Name Here</p>
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-                <div className = "Card-Base" >
-                    <div className="descripcion">
-                        <p>Task Description Here</p>
-                    </div>
-                    <div className="Lorem-ipsum-dolor-si">
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                        <a href="#">Lorem Ipsum is simply dummy</a>
-                    </div>
-
-                    <div>
-                        <i class="fas fa-folder-open" ></i>
-                    </div>
-
-                </div> 
-
-                <div className="icono">
-                        
-                    <FaShareAlt/>
-                </div>
-
-                <div className="right-box">
-
-
-                    <button className="boton">
-                        Done
-                    </button>
-                    
-                </div>
-
-                <div className = "Card-Base1" >
-                    <p className="In-Charge">In Charge</p>
-                    <div className="Oval">
-                        <div className="Online-Status"> <p className="User-Name-Last-Name">User Name Last Name</p></div>
-                    </div>
-                    <p className="Reporter">Reporter</p>
-                    <div className="Oval">
-                        <div className="Online-Status"> <p className="User-Name-Last-Name">User Name Last Name</p></div>
-                    </div>
-
-                    <p className="Task">Task</p>
-
-                    <p className="Task-Tag-II">Task Tag</p>
-                    <p className="Task-Tag-II Task-Black">Task Tag</p>
-
-                </div>
-                
-
-            </div>
-
+  return (
+    <main className="monkeys-p-5">
+      <div className="d-flex">
+        <span className="task-tag monkeys-text-flame">Task Tag</span>
+        <span className="task-tag-bolder monkeys-text-midnight-blue monkeys-ml-2">
+          Task Tag
+        </span>
+      </div>
+      <div className="d-flex monkeys-mt-5 justify-content-between aling-items-center">
+        <h1 className="task-name monkeys-text-dark-blue">
+          Task Name {id}
+        </h1>
+        <div className="d-flex align-items-center">
+          <FaShareAlt className="monkeys-text-gray pointer" />
+          <div className="monkeys-p-1">
+            <button className="task-detail-button d-flex align-items-center justify-content-center">
+              <div
+                className="monkeys-bg-secondary-blue position-absolute h-100 w-100 task-detail-button-op"
+                style={{ zIndex: 1 }}
+              />
+              <span
+                className="monkeys-text-special-blue position-absolute"
+                style={{ zIndex: 2 }}
+              >
+                Done
+              </span>
+            </button>
+          </div>
         </div>
-    </main >
-    );
+      </div>
+      <div className="d-flex monkeys-mt-3 justify-content-between h-100 w-100 task-detail-container">
+        {/* TASK DETAIL ONE */}
+        <div className="d-flex flex-column monkeys-bg-white shadow monkeys-p-3 task-detail-one">
+          <span className="task-description monkeys-text-midnight-blue">
+            Task Description
+          </span>
+
+          {/* TASK DETAIL CONTENT */}
+          <div className="d-flex flex-column monkeys-mt-2">
+            <div>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+              maxime commodi tenetur quidem ipsum quia voluptatem perferendis
+              in, sunt nesciunt officia molestiae delectus deserunt molestias
+              quas assumenda corrupti omnis sit quam! Dolorem expedita quaerat
+              cumque recusandae sunt perferendis doloribus maxime labore quidem
+              similique, cupiditate quam ullam distinctio laudantium. Nobis
+              culpa natus nulla repudiandae nisi odit atque aliquam delectus
+              optio blanditiis, possimus excepturi eaque aut sit, ducimus
+              accusamus voluptates, voluptatibus tenetur quidem provident! Ab
+              tempore similique sint repellendus nulla velit fuga vitae numquam,
+              nam sunt eum? Eveniet fuga similique aut doloremque suscipit at
+              provident quod officiis iste! Alias dolore culpa eius?
+            </div>
+            <div className="monkeys-mt-3">
+              <span className="monkeys-text-primary">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat
+                quibusdam harum sunt, aliquid maxime quod.
+              </span>
+            </div>
+          </div>
+
+          {/* TASK DETAIL FOOTER */}
+          <div className="d-flex monkeys-mt-4 align-items-center user-select-none pointer">
+            <BsFolder />
+            <span className="monkeys-ml-2 monkeys-text-midnight-blue">
+              assets
+            </span>
+          </div>
+        </div>
+        {/* TASK DETAIL TWO */}
+        <div className="d-flex flex-column monkeys-bg-white shadow monkeys-p-3 task-detail-two">
+          <span className="task-detail-two-header">In Charge</span>
+          <div className="d-flex align-items-center monkeys-mt-2">
+            <Avatar />
+            <span className="task-detail-username monkeys-ml-1">
+              User Name Last Name
+            </span>
+          </div>
+          <span className="task-detail-two-header monkeys-mt-2">Reporter</span>
+          <div className="d-flex align-items-center">
+            <Avatar />
+            <span className="task-detail-username monkeys-ml-1">
+              User Name Last Name
+            </span>
+          </div>
+          <span className="task-detail-two-header monkeys-mt-4">Task</span>
+          <span className="task-tag monkeys-text-flame monkeys-mt-2">
+            Task Tag
+          </span>
+          <span className="task-tag-bolder monkeys-text-midnight-blue monkeys-mt-2">
+            Task Tag
+          </span>
+        </div>
+      </div>
+    </main>
+  );
 }
 
-export default (task_detail);
+export default TaskDetail;

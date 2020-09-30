@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import './style.scss';
 import ProjectColumn from '../../components/projectcolumn';
+import BreadCrumb from "../../components/breadcrumb";
 
 const Project = () => {
   const [mode, setMode] = useState('Issues');
@@ -15,9 +16,9 @@ const Project = () => {
   ];
 
   const tasks = [
-    { name: 'Tag', date: 'MM/DD/YY' },
-    { name: 'Tag', date: 'MM/DD/YY' },
-    { name: 'Tag', date: 'MM/DD/YY' },
+    {id: 1, name: 'Tag', date: 'MM/DD/YY' },
+    {id: 2, name: 'Tag', date: 'MM/DD/YY' },
+    {id: 3, name: 'Tag', date: 'MM/DD/YY' },
   ];
 
   const columns = [
@@ -27,15 +28,12 @@ const Project = () => {
   ];
 
   return (
-    <div className='manage-page'>
+    <div className='manage-page monkeys-p-5'>
       <div className='project-header'>
-        <div className='project-name'>
-          <p>
-            Organization Name <span>/</span>
-            <strong>App Name</strong>
-          </p>
+        <BreadCrumb />
+        <div className="monkeys-p-1">
+          <span className='project-type'>Public</span>
         </div>
-        <span className='project-type'>Public</span>
         <div className='project-enviroment-buttons'>
           <button className='env-button'>All Enviroment</button>
           <button className='env-button env-active'>Dev Enviroment</button>
