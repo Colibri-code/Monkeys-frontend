@@ -6,21 +6,58 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 // Local
 import "./style.scss";
 
-function Breadcrumb({ group, value, items, text, name, onChange }) {
+function Breadcrumb(props) {
   const [isVisible, setIsVisible] = useState(false);
+  const [organization, setOrganization] = useState({
+    id: -1,
+    name: "All organizations",
+  });
+  const [application, setApplication] = useState({
+    id: -1,
+    name: "All applications",
+  });
+  const [environment, setEnvironment] = useState({
+    id: -1,
+    name: "All environments",
+  });
+
+  const organizations = [
+    { name: "All organizations", id: -1 },
+    { name: "organization one", id: 1 },
+    { name: "organization two", id: 2 },
+    { name: "organization three", id: 3 },
+  ];
+
+  const applications = [
+    { name: "All applications", id: -1 },
+    { name: "application one", id: 1 },
+    { name: "application two", id: 2 },
+    { name: "application three", id: 3 },
+  ];
+
+  const environments = [
+    { name: "All environments", id: -1 },
+    { name: "Dev", id: 1 },
+    { name: "Stage", id: 2 },
+    { name: "Production", id: 3 },
+    { name: "Develop2", id: 4 },
+    { name: "RA", id: 5 },
+  ];
+
   const handleClick = useCallback(
     (e) => {
       switch (e.currentTarget.dataset.el_name) {
-        case "btnTitle":
+        case "btnBreacrumb":
           setIsVisible((prev) => !prev);
           break;
-        case "btnSelect":
-          onChange({
-            target: {
-              name,
-              value: JSON.parse(e.currentTarget.dataset.el_value),
-            },
-          });
+        case "btnOrganization":
+          setOrganization(JSON.parse(e.currentTarget.dataset.el_value));
+          break;
+        case "btnApplication":
+          setApplication(JSON.parse(e.currentTarget.dataset.el_value));
+          break;
+        case "btnEnvironment":
+          setEnvironment(JSON.parse(e.currentTarget.dataset.el_value));
           break;
         default:
           break;
@@ -30,95 +67,98 @@ function Breadcrumb({ group, value, items, text, name, onChange }) {
     [name]
   );
 
-  const applications = [
-    { name: "All applications", id: -1 },
-    { name: "application one", id: 1 },
-    { name: "application two", id: 2 },
-    { name: "application three", id: 3 },
-  ];
-
-  const environments  = [
-    { name: "All environments", id: -1 },
-    { name: "Dev", id: 1 },
-    { name: "Stage", id: 2 },
-    { name: "Production", id: 3 },
-    { name: "Develop2", id: 4 },
-    { name: "RA", id: 5 },
-  ]
-
   return (
     <div className="d-flex flex-column user-select-none">
-      <div className="d-flex align-items-center" data-el_name="btnBreacrumb">
-        <div className="user-select-none">
-          Organization
-        </div>
+      <div
+        className="d-flex align-items-center pointer breadcrumb-button"
+        onClick={handleClick}
+        data-el_name="btnBreacrumb"
+      >
+        <div className="breadcrumb-bg" />
+
+        <div className="breadcrumb-text">{organization.name}</div>
         <span>/</span>
-        <div className="user-select-none">
-          Application
-        </div>
+        <div className="breadcrumb-text">{application.name}</div>
         <span>/</span>
-        <div className="user-select-none">
-          Environment
-        </div>
+        <div className="breadcrumb-text">{environment.name}</div>
       </div>
       {isVisible && (
-        <div className="d-flex position-absolute shadow monkeys-bg-white monkeys-fade-in-out monkeys-mt-4">
-          {/* Organizations */}
-          <div className="d-flex flex-column">
-            <div className="d-flex align-items-center monkeys-p-2 font-weight-bolder monkeys-bb-1-white-gray-solid">
-              {group}
-              <AiOutlineInfoCircle className="monkeys-f-3 monkeys-ml-1" />
-            </div>
-
-            {items.map((item, i) => (
-              <div
-                key={i}
-                className="pointer monkeys-p-2"
-                onClick={handleClick}
-                data-el_name="btnSelect"
-                data-el_value={JSON.stringify(item)}
-              >
-                {item[text]}
+        <div className="d-flex monkeys-mt-5 position-absolute flex-wrap">
+          {/* ORGANIZATIONS */}
+          <div className="monkeys-card monkeys-bg-white">
+            <div className="monkeys-card-header d-flex align-items-center">
+              <span>Organization</span>
+              <div className="monkeys-p-1">
+                <AiOutlineInfoCircle className="monkeys-info-icon" />
               </div>
-            ))}
+            </div>
+            <div className="monkeys-card-body">
+              <ul className="monkeys-list">
+                {organizations.map((o, i) => (
+                  <li
+                    onClick={handleClick}
+                    data-el_name="btnOrganization"
+                    data-el_value={JSON.stringify(o)}
+                    className={`monkeys-list-item pointer ${
+                      organization.id === o.id && "active"
+                    }`}
+                    key={i}
+                  >
+                    {o.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          {/* Applications */}
-          <div className="d-flex flex-column">
-            <div className="d-flex align-items-center monkeys-p-2 font-weight-bolder monkeys-bb-1-white-gray-solid">
-              {group}
-              <AiOutlineInfoCircle className="monkeys-f-3 monkeys-ml-1" />
-            </div>
-
-            {items.map((item, i) => (
-              <div
-                key={i}
-                className="pointer monkeys-p-2"
-                onClick={handleClick}
-                data-el_name="btnSelect"
-                data-el_value={JSON.stringify(item)}
-              >
-                {item[text]}
+          {/* APPLICATIONS */}
+          <div className="monkeys-card monkeys-bg-white">
+            <div className="monkeys-card-header d-flex align-items-center">
+              <span>Application</span>
+              <div className="monkeys-p-1">
+                <AiOutlineInfoCircle className="monkeys-info-icon" />
               </div>
-            ))}
+            </div>
+            <ul className="monkeys-card-body">
+              {applications.map((a, j) => (
+                <li
+                  onClick={handleClick}
+                  data-el_name="btnApplication"
+                  data-el_value={JSON.stringify(a)}
+                  className={`monkeys-list-item pointer ${
+                    application.id === a.id && "active"
+                  }`}
+                  key={j}
+                >
+                  {a.name}
+                </li>
+              ))}
+            </ul>
           </div>
-          {/* Environments */}
-          <div className="d-flex flex-column">
-            <div className="d-flex align-items-center monkeys-p-2 font-weight-bolder monkeys-bb-1-white-gray-solid">
-              {group}
-              <AiOutlineInfoCircle className="monkeys-f-3 monkeys-ml-1" />
-            </div>
-
-            {items.map((item, i) => (
-              <div
-                key={i}
-                className="pointer monkeys-p-2"
-                onClick={handleClick}
-                data-el_name="btnSelect"
-                data-el_value={JSON.stringify(item)}
-              >
-                {item[text]}
+          {/* ENVIRONMENTS */}
+          <div className="monkeys-card monkeys-bg-white">
+            <div className="monkeys-card-header d-flex align-items-center">
+              <span>Environment</span>
+              <div className="monkeys-p-1">
+                <AiOutlineInfoCircle className="monkeys-info-icon" />
               </div>
-            ))}
+            </div>
+            <div className="monkeys-card-body">
+              <ul className="monkeys-list">
+                {environments.map((e, k) => (
+                  <li
+                    onClick={handleClick}
+                    data-el_name="btnEnvironment"
+                    data-el_value={JSON.stringify(e)}
+                    className={`monkeys-list-item pointer ${
+                      environment.id === e.id && "active"
+                    }`}
+                    key={k}
+                  >
+                    {e.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       )}
