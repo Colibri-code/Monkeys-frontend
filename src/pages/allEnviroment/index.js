@@ -3,6 +3,7 @@ import { FaFolder } from 'react-icons/fa';
 
 import './style.scss';
 import Activitycontainer from '../../components/activitycontainer';
+import BreadCrumb from "../../components/breadcrumb";
 
 const AllEnviroment = () => {
   const [mode, setMode] = useState('Issues');
@@ -17,10 +18,7 @@ const AllEnviroment = () => {
     <div className='detail-enviroment-page monkeys-p-5'>
       <div className='project-header'>
         <div className='project-name'>
-          <p>
-            Organization Name <span>/</span>
-            <strong>App Name</strong>
-          </p>
+          <BreadCrumb />
         </div>
         <span className='project-type'>Public</span>
         <div className='project-enviroment-buttons'>
