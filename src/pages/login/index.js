@@ -1,4 +1,5 @@
 import React from 'react';
+import GoogleLogin from 'react-google-login';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
@@ -25,6 +26,8 @@ const Login = () => {
   const onSubmit = async values => {
     console.log(values);
   };
+
+  const onGoogleLogin = response => console.log(response);
 
   return (
     <div className='login-page'>
@@ -61,7 +64,17 @@ const Login = () => {
             </h3>
           </div>
           <div className='img-container'>
-            <img src={Google} alt='google' className='google' />
+            <GoogleLogin
+              clientId='614969697632-v109s8e1a45j3j4qnrsksdd2fkeurn7r.apps.googleusercontent.com'
+              buttonText=''
+              onSuccess={onGoogleLogin}
+              onFailure={onGoogleLogin}
+              cookiePolicy={'single_host_origin'}
+              className='google-btn'
+              icon={false}
+            >
+              <img src={Google} alt='google' className='google' />
+            </GoogleLogin>
           </div>
         </div>
       </div>
