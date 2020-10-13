@@ -1,4 +1,4 @@
-@import "../../sass//main.scss";
+@import '../../sass//main.scss';
 .avatar-container {
   display: flex;
   align-items: center;
@@ -9,6 +9,7 @@
   position: relative;
   height: 40px;
   width: 40px;
+  margin-left: 20px;
 }
 
 .avatar-icon {

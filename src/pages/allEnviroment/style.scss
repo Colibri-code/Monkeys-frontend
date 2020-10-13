@@ -13,12 +13,11 @@
 .enviroment-table-container {
   margin-top: 40px;
   padding-bottom: 250px;
-  overflow-x: scroll;
   @include sm {
     display: none;
   }
   table {
-    width: 100%;
+    width: 99%;
     border-collapse: collapse;
   }
   thead {

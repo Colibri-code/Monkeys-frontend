@@ -1,4 +1,4 @@
-@import "../../sass/main.scss";
+@import '../../sass/main.scss';
 
 .monkeys-sidebar {
   min-height: 100vh;
@@ -27,18 +27,18 @@
   font-size: 30px;
 }
 
-.monkeys-menu-icon-container{
+.monkeys-menu-icon-container {
   margin-top: 16px;
   margin-left: 22px;
 }
 
-.monkeys-menu-image{
+.monkeys-menu-image {
   width: 40px;
   height: 40px;
   object-fit: contain;
 }
 
-.monkeys-sidebar-avatar-img{
+.monkeys-sidebar-avatar-img {
   height: 32px;
   width: 32px;
   background: $Egyptianblue-color;
