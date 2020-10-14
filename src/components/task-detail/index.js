@@ -1,5 +1,7 @@
 // Third libs
-import React from "react";
+import React from 'react';
+import SunEditor from 'suneditor-react';
+import 'suneditor/dist/css/suneditor.min.css'; // Import Sun Editor's CSS File
 import { BsFolder } from "react-icons/bs";
 import { FaShareAlt } from "react-icons/fa";
 import { useParams } from "react-router-dom";
@@ -16,6 +18,10 @@ function TaskDetail() {
 
   return (
     <main className="monkeys-p-5">
+      <div>
+        <p> My Other Contents </p>
+        <SunEditor />
+      </div>
       <div className="d-flex">
         <span className="task-tag monkeys-text-flame">Task Tag</span>
         <span className="task-tag-bolder monkeys-text-midnight-blue monkeys-ml-2">
