@@ -2,12 +2,11 @@
 
 .wikiContainer {        
     display: block;      
-    width: 900px;
+    width: 75%;
     margin: auto;
 }
 
-.titleHeader {
-    width: 207px;
+.titleHeader {    
     height: 32px;
     font-family: Rubik;
     font-size: 28px;
@@ -16,7 +15,7 @@
     font-style: normal;
     line-height: 1.14;
     letter-spacing: normal;
-    color: #1a1a1a;    
+    color: #15225a;   
     margin-bottom: 30px;
 }
 
@@ -58,6 +57,7 @@
     margin-bottom: 8px!important;
     display: block!important;
     font-weight: 600;
+    color: #15225a;
 }
 
 .smallMessage {        
@@ -83,4 +83,9 @@
     cursor: pointer;
     float: right;
 }
+
+.editor {
+    margin: 25px 0px 25px 0px;
+}
+
 
