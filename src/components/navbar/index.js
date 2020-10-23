@@ -5,7 +5,7 @@ import "./style.scss";
 
 // Components
 import Avatar from "../avatar";
-
+import Iconconfig from "../configicon";
 function Navbar() {
   return (
     <nav className="monkeys-nav">
@@ -15,7 +15,7 @@ function Navbar() {
         </div>       
           <div className="navbar-icons">
             <FaSearch className="nav-icon" />
-            <FaCog  className="nav-icon"/>
+            <Iconconfig className="nav-icon"/>
             <FaBell className="nav-icon" />
             <Avatar className="nav-avatar" />
           </div>

@@ -5,7 +5,7 @@ import {FaExternalLinkAlt} from "react-icons/fa";
 function UserSettings() {
    
     return(
-        <nav className="container">
+        <nav className="menu">
             <div>
             <a>
             Jira
