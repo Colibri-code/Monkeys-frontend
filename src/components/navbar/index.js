@@ -5,6 +5,7 @@ import "./style.scss";
 
 // Components
 import Avatar from "../avatar";
+import Iconconfig from "../configicon";
 import SearchFilter from './SearchFilter'
 
 function Navbar() {
@@ -25,7 +26,7 @@ function Navbar() {
         <SearchFilter />
           <div className="navbar-icons">
             <FaSearch className="nav-icon" />
-            <FaCog  className="nav-icon"/>
+            <Iconconfig className="nav-icon"/>
             <FaBell className="nav-icon" />
             <Avatar className="nav-avatar" />
           </div>
