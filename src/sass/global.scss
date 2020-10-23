@@ -19,6 +19,9 @@
   grid-template-areas:
     'sidebar navbar'
     'sidebar app';
+  @include md{
+    grid-template-rows: auto 1fr;
+  }
 }
 
 .app {
