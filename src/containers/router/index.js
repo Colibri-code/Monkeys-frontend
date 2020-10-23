@@ -12,6 +12,7 @@ import Historial from "../../components/historial";
 import Navbar from "../../components/navbar";
 import Sidebar from "../../components/sidebar";
 import TaskDetail from "../../components/task-detail";
+import WikiSection from "../../components/wikiSection";
 
 // Local
 import useHistorialActions from "../../store/historial/actions";
@@ -42,6 +43,7 @@ function Router() {
                 <Route path="/all-enviroment" component={AllEnviroment} />
                 <Route path="/dev-enviroment" component={DevEnviroment} />
                 <Route path="/task-detail/:id" component={TaskDetail} />
+                <Route path="/wikiSection" component={WikiSection} />
               </Switch>
             </div>
           </div>
