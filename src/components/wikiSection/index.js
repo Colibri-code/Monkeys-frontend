@@ -1,7 +1,7 @@
 // Third libs
 import React from 'react';
-/* import SunEditor from 'suneditor-react'; //Imports Sun Editor installed via npm // Import Sun Editor's CSS File
-import 'suneditor/dist/css/suneditor.min.css'; */
+import SunEditor from 'suneditor-react'; //Imports Sun Editor installed via npm // Import Sun Editor's CSS File
+import 'suneditor/dist/css/suneditor.min.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -9,7 +9,6 @@ import * as Yup from 'yup';
 import './style.scss';
 
 const WikiSection = () => {
-  return;
   //Build of the constant that will be export
   const wikiForm = useFormik({
     initialValues: {
@@ -49,14 +48,14 @@ const WikiSection = () => {
                     this tag loads a WYSIWYG but attributes such as width, height, etc
                     can't be set on the scss file.
                 */}
-          {/*     <SunEditor
-            name='content'
-            className='input-block'
-            height='300'
-            placeholder='Please add your content here...'
-            onChange={wikiForm.handleChange}
-            value={wikiForm.values.content}
-          /> */}
+        <SunEditor
+          name='content'
+          className='input-block'
+          height='300'
+          placeholder='Please add your content here...'
+          onChange={wikiForm.handleChange}
+          value={wikiForm.values.content}
+        />
         </div>
         <div>
           <p className='smallTitle'>Edit message</p>
