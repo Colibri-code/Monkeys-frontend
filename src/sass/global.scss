@@ -19,16 +19,16 @@
   grid-template-areas:
     'sidebar navbar'
     'sidebar app';
-  @include md{
+  @include md {
     grid-template-rows: auto 1fr;
   }
 }
 
 .app {
   grid-area: app;
-  background: #f4f6fc;
+  /*   background: #f4f6fc;
   min-height: calc(100vh - 80px);
-  min-width: calc(100vw - 80px);
+  min-width: calc(100vw - 80px); */
 }
 
 .title {
