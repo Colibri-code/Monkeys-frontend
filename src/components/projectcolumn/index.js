@@ -6,6 +6,7 @@ import TaskCard from '../taskcard';
 
 const ProjectColumn = ({ title, color, number, tasks = [] }) => {
   const [show, setShow] = useState(false);
+
   return (
     <div className='project-column'>
       <div className='project-column-header'>
@@ -22,8 +23,15 @@ const ProjectColumn = ({ title, color, number, tasks = [] }) => {
           />
         </div>
       </div>
-      <div className={`project-tasks-container ${show ? 'show-tasks' : ''}`}>
-        {tasks.map((task, i) => (
+      <div className={`project-tasks-container ${show ? 'show-tasks' : ''}`}
+          onDragOver={(e) => { e.preventDefault();}}
+          onDrop={(e, title) => {
+              let id = e.dataTransfer.getData("id");
+              
+            }
+          }
+      >
+        {tasks.map((task, i) => (          
           <TaskCard task={task} key={i} color={color} />
         ))}
       </div>

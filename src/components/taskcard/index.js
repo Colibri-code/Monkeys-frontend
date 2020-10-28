@@ -18,10 +18,12 @@ const TaskCard = ({ task: { id, name, date }, color }) => {
     }
     // eslint-disable-next-line
   }, [id]);
-
+  
   return (
     <div
       className="task-card pointer"
+      onDragStart = {(e, id) =>{e.dataTransfer.setData("id", id);}}
+      draggable
       style={{ borderLeftColor: color }}
       onClick={handleClick}
       data-el_name="btnTaskCard"
