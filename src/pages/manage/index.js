@@ -3,6 +3,22 @@ import React, { useState } from 'react';
 import './style.scss';
 import ProjectColumn from '../../components/projectcolumn';
 import BreadCrumb from "../../components/breadcrumb";
+import {FaUserAlt} from "react-icons/fa";
+import {FaPlus} from "react-icons/fa";
+
+const user = {
+  id : 1,
+  value : 'Oscar Melendez'
+};
+
+const userCollection = [
+  {id: 1, value: 'Oscar Melendez' },
+  {id: 2, value: 'Eduardo Alvarez' },
+  {id: 3, value: 'Carlos Gutierrez' },
+  {id: 4, value: 'Alejandro Melendez' },
+  {id: 5, value: 'Cesar Mata' },
+  {id: 6, value: 'José Peraza' }
+];
 
 const Project = () => {
   const [mode, setMode] = useState('Issues');
@@ -56,6 +72,13 @@ const Project = () => {
         <div className='project-mode-name'>
           <h3>Issues</h3>
         </div>
+        {/*
+          ---------------------------user fields---------------------------------
+        */}
+        <UserList/>
+        {/*
+            ---------------------------end user fields--------------------------------
+        */}
         <div className='project-action-buttons'>
           <button>Complete Sprint</button>
           <button>Edit Boards</button>
@@ -76,5 +99,39 @@ const Project = () => {
     </div>
   );
 };
+
+const UserList = () => {
+  return(
+      <div className="user-filter">
+        <ul>
+          {userCollection.map(({id, value})=>(
+              <li>
+                <UserIcon
+                    id={id}
+                    value={value}
+                />
+              </li>
+          ))
+          }
+          {/*
+        <li><a><span><FaPlus/></span></a></li>
+        */}
+        </ul>
+      </div>
+  );
+}
+
+const UserIcon = (props) =>{
+  return(
+      <div className="icon-container">
+        <label className="userIcon">
+          <input id={props.id} type="checkbox" value={props.value}/>
+          <div className="toggle">
+            <FaUserAlt/>
+          </div>
+        </label>
+      </div>
+  );
+}
 
 export default Project;
