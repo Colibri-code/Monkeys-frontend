@@ -26,9 +26,9 @@
 
 .app {
   grid-area: app;
-  /*   background: #f4f6fc;
-  min-height: calc(100vh - 80px);
-  min-width: calc(100vw - 80px); */
+  height: calc(100vh - 80px);
+  overflow-y: scroll;
+  background: #f4f6fc;
 }
 
 .title {
@@ -100,6 +100,10 @@ button {
 }
 .justify-content-between {
   justify-content: space-between;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
 }
 
 .flex-column {
