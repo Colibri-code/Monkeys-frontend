@@ -32,15 +32,21 @@ const Project = () => {
   ];
 
   const tasks = [
-    {id: 1, name: 'Tag', date: 'MM/DD/YY' },
-    {id: 2, name: 'Tag', date: 'MM/DD/YY' },
-    {id: 3, name: 'Tag', date: 'MM/DD/YY' },
+    {id: 1, name: 'Tag', date: 'MM/DD/YY', state: 'To do'},
+    {id: 2, name: 'Tag', date: 'MM/DD/YY', state: 'Working' },
+    {id: 4, name: 'Tag', date: 'MM/DD/YY', state: 'Done' },
+    {id: 5, name: 'Tag', date: 'MM/DD/YY', state: 'Working' },
+    {id: 6, name: 'Tag', date: 'MM/DD/YY', state: 'Done' },
+    {id: 7, name: 'Tag', date: 'MM/DD/YY', state: 'Working' },
+    {id: 8, name: 'Tag', date: 'MM/DD/YY', state: 'Done' },
+    {id: 9, name: 'Tag', date: 'MM/DD/YY', state: 'Working' },
+    {id: 10, name: 'Tag', date: 'MM/DD/YY', state: 'To do' },
   ];
 
   const columns = [
-    { title: 'To do', color: '#FF4900', number: 76 },
-    { title: 'Working', color: '#8798ad', number: 69 },
-    { title: 'done', color: '#0070ff', number: 28 },
+    { title: 'To do', color: '#FF4900', number: 76, id: 1 },
+    { title: 'Working', color: '#8798ad', number: 69, id: 2 },
+    { title: 'Done', color: '#0070ff', number: 28, id: 3 },
   ];
 
   return (
@@ -86,11 +92,12 @@ const Project = () => {
         </div>
       </div>
       <div className='project-tasks'>
-        {columns.map(({ title, number, color }, i) => (
+        {columns.map(({ title, number, color, id }, i) => (
           <ProjectColumn
             title={title}
             number={number}
             color={color}
+            id={id}            
             key={i}
             tasks={tasks}
           />
@@ -104,14 +111,16 @@ const UserList = () => {
   return(
       <div className="user-filter">
         <ul>
-          {userCollection.map(({id, value})=>(
-              <li>
+          {userCollection.map(({id, value}, i)=>(
+              <li
+                key={i} 
+              >
                 <UserIcon
                     id={id}
                     value={value}
                 />
               </li>
-          ))
+            ))
           }
           {/*
         <li><a><span><FaPlus/></span></a></li>
