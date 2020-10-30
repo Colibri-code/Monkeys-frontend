@@ -33,32 +33,32 @@ const ProjectColumn = ({ title, color, number, id , tasks = [] }) => {
     <div id={id} 
         className='project-column'
         onDragOver={(e) => { e.preventDefault();}}
-        onDrop={(e) => {
-            let id = JSON.parse(e.dataTransfer.getData('id'));
-            console.log('onDrop: ', id);            
-            var taskList = {tasks};
-            console.log('Array of Tasks: ', taskList);
+        onDrop={(e) => {             
+            let id = JSON.parse(e.dataTransfer.getData('id'));                        
+            let columnTitle = title;              
 
-            const test = taskList.filter(task => task.id < 6);
-            console.log(test);
-
-            /*
-            let tasks = this.tasks.filter((task)=> {
-              if(task.id == id){
-                task.state = title;
-              }
+            const test = tasks.filter((task) => {
+                if(task.id == id.id){
+                  console.log('current state: ', task.state)
+                  task.state = columnTitle;
+                  console.log('new state: ', task.state)
+                }
               return task;
             });
+
+            {
+              /*Retornamos el nuevo arreglo actualizado
             this.setState({
               ...this.state,
-                  tasks
+              test
             });
-            */
+              */
+            } 
+            console.log('test array: ', test);
+                        
           }
         }
-    >     {
-            // Creacion de las columnas
-          }                    
+    >                         
       <div className='project-column-header'>
         {
           // Creacion de los titulos que poseeran las columnas en su encabezado
