@@ -23,13 +23,7 @@ const TaskCard = ({ task: { id, name, date, state }, color }) => {
   return (
     <div
       id= {id}
-      className="task-card pointer"
-      onDragStart = {(e) =>{
-          console.log('drag-start: ', {id});
-          e.dataTransfer.setData("id", JSON.stringify({id}));
-        }
-      }
-      draggable
+      className="task-card pointer"      
       style={{ borderLeftColor: color }}
       onClick={handleClick}
       data-el_name="btnTaskCard"

@@ -6,11 +6,6 @@ import BreadCrumb from "../../components/breadcrumb";
 import {FaUserAlt} from "react-icons/fa";
 import {FaPlus} from "react-icons/fa";
 
-const user = {
-  id : 1,
-  value : 'Oscar Melendez'
-};
-
 const userCollection = [
   {id: 1, value: 'Oscar Melendez' },
   {id: 2, value: 'Eduardo Alvarez' },
@@ -32,15 +27,15 @@ const Project = () => {
   ];
 
   const tasks = [
-    {id: 1, name: 'Tag', date: 'MM/DD/YY', state: 'To do'},
-    {id: 2, name: 'Tag', date: 'MM/DD/YY', state: 'Working' },
-    {id: 4, name: 'Tag', date: 'MM/DD/YY', state: 'Done' },
-    {id: 5, name: 'Tag', date: 'MM/DD/YY', state: 'Working' },
-    {id: 6, name: 'Tag', date: 'MM/DD/YY', state: 'Done' },
-    {id: 7, name: 'Tag', date: 'MM/DD/YY', state: 'Working' },
-    {id: 8, name: 'Tag', date: 'MM/DD/YY', state: 'Done' },
-    {id: 9, name: 'Tag', date: 'MM/DD/YY', state: 'Working' },
-    {id: 10, name: 'Tag', date: 'MM/DD/YY', state: 'To do' },
+    {id: 1, name: '1', date: 'MM/DD/YY', state: 'To do'},
+    {id: 2, name: '2', date: 'MM/DD/YY', state: 'Working' },
+    {id: 3, name: '3', date: 'MM/DD/YY', state: 'Done' },
+    {id: 4, name: '4', date: 'MM/DD/YY', state: 'Working' },
+    {id: 5, name: '5', date: 'MM/DD/YY', state: 'To do' },
+    {id: 6, name: '6', date: 'MM/DD/YY', state: 'Done' },
+    {id: 7, name: '7', date: 'MM/DD/YY', state: 'Working' },
+    {id: 8, name: '8', date: 'MM/DD/YY', state: 'Done' },
+    {id: 9, name: '9', date: 'MM/DD/YY', state: 'Working' },    
   ];
 
   const columns = [

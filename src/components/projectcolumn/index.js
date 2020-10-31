@@ -26,19 +26,20 @@ const ColumnHeader = ({ title, color, number}) => {
 }
 
 const ProjectColumn = ({ title, color, number, id , tasks = [] }) => {
-//Con el parametro id identificamos los id de las columnas
-  const [show, setShow] = useState(false);
-
+  const [show, setShow] = useState(false);  
+  const [list, setList] = React.useState(tasks);
+  
   return (
     <div id={id} 
         className='project-column'
         onDragOver={(e) => { e.preventDefault();}}
         onDrop={(e) => {             
-            let id = JSON.parse(e.dataTransfer.getData('id'));                        
+            let id = JSON.parse(e.dataTransfer.getData('id'));   
+            console.log('dragged id: ', id)                     
             let columnTitle = title;              
 
-            const test = tasks.filter((task) => {
-                if(task.id == id.id){
+            const test = list.filter((task) => {
+                if(task.id == id){
                   console.log('current state: ', task.state)
                   task.state = columnTitle;
                   console.log('new state: ', task.state)
@@ -46,23 +47,12 @@ const ProjectColumn = ({ title, color, number, id , tasks = [] }) => {
               return task;
             });
 
-            {
-              /*Retornamos el nuevo arreglo actualizado
-            this.setState({
-              ...this.state,
-              test
-            });
-              */
-            } 
-            console.log('test array: ', test);
-                        
+            setList(test);            
+            console.log('test array: ', test);                        
           }
         }
     >                         
-      <div className='project-column-header'>
-        {
-          // Creacion de los titulos que poseeran las columnas en su encabezado
-        }
+      <div className='project-column-header'>        
         <h5 className='title'>
           {title}
           <span className='badge-counter' style={{ color }}>
@@ -76,20 +66,20 @@ const ProjectColumn = ({ title, color, number, id , tasks = [] }) => {
           />
         </div>
       </div>       
-      <div className={`project-tasks-container ${show ? 'show-tasks' : ''}`}>   
-        {
-          // Creacion de cada una de las tareas que vienen en el arreglo
-        }
-        {tasks.filter(task => task.state == title).map((filteredTask, i) => (         
-          <TaskCard task={filteredTask} key={i} color={color} />        
-        )) }
-
-        {
-        /*
-          Usamos la implementacion de un array.filter esto ayuda a saber donde dajar caer los tasks
-          al realizar el mapeo o loop que nos ayuda a cargar el objeto de tasks  
-        */
-        }
+      <div className={`project-tasks-container ${show ? 'show-tasks' : ''}`}>           
+        {list.filter(task => task.state == title).map((filteredTask, i) => (    
+          <div
+            onDragStart = {(e) =>{
+                console.log('Filtered task id: ', filteredTask.id);
+                e.dataTransfer.setData("id", JSON.stringify(filteredTask.id));
+              }
+            }
+            draggable
+            key={i}
+          >
+            <TaskCard task={filteredTask} key={i} color={color} />        
+          </div>          
+        )) }                
       </div>           
     </div>
   );
