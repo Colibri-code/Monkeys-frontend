@@ -5,7 +5,7 @@
   align-items: center;
   background: white;
   &:hover {
-    background-color: rgb(244, 245, 247);
+    background-color: $gray-active;
     color: rgb(23, 43, 77);
     text-decoration: none;
   }

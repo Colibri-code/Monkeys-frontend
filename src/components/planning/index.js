@@ -10,6 +10,7 @@ import MonkeyInput from "../../components/monkeyInput";
 import MonkeyAvatar from "../../components/monkeyAvatar";
 import MonkeyMenu from "../monkeyMenu";
 import MonkeyMenuItem from "../monkeyMenuItem";
+import MonkeyButtonBase from "../monkeyButtonBase";
 
 function Planning(props) {
   const [isLatestUserOpen, setIsLatestUserOpen] = useState(false);
@@ -88,6 +89,16 @@ function Planning(props) {
               </MonkeyMenu>
             )}
           </div>
+        </div>
+        <div className="monkeys-p-3 d-flex">
+          <MonkeyButtonBase className="d-flex monkeys-p-2 align-items-center justify-content-center overriding-monkeys-button-base">
+            <span>My Issues</span>
+          </MonkeyButtonBase>
+        </div>
+        <div className="monkeys-p-3 d-flex">
+          <MonkeyButtonBase className="d-flex monkeys-p-2 align-items-center justify-content-center overriding-monkeys-button-base">
+            <span>Newest</span>
+          </MonkeyButtonBase>
         </div>
       </div>
     </div>
