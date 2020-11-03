@@ -101,6 +101,9 @@ function Planning(props) {
           </MonkeyButtonBase>
         </div>
       </div>
+      <div className="row overflow-auto">
+        <div className="d-flex"></div>
+      </div>
     </div>
   );
 }
