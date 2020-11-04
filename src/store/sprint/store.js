@@ -3,16 +3,16 @@ import React, { createContext, useContext, useReducer } from "react";
 import actions from "./constants";
 
 const defaultState = {
-  query:""
+  tasks: [],
 };
 
 const reducer = (state = defaultState, action = {}) => {
   const { type } = action;
   switch (type) {
-    case actions.TOGGLE_SIDEBAR:
+    case actions.SET_VAL:
       return {
         ...state,
-        isSidebarExpanded: !state.isSidebarExpanded,
+        [action.payload.key]: action.payload.value,
       };
     default: {
       return state;
@@ -25,6 +25,7 @@ const Dispatch = createContext(null);
 
 export function Provider({ children }) {
   const [state, dispatch] = useReducer(reducer, defaultState);
+
   return (
     <State.Provider value={state}>
       <Dispatch.Provider value={dispatch}>{children}</Dispatch.Provider>
@@ -32,9 +33,9 @@ export function Provider({ children }) {
   );
 }
 
-export const SidebarStore = {
+export const TaskStore = {
   State,
   Dispatch,
   Provider,
-  useSidebarStore: () => [useContext(State), useContext(Dispatch)],
+  useTask: () => [useContext(State), useContext(Dispatch)],
 };

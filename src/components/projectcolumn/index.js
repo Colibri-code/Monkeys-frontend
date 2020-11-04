@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { FaCaretDown } from 'react-icons/fa';
+import React, { useState } from "react";
+import { FaCaretDown } from "react-icons/fa";
 
-import './style.scss';
-import TaskCard from '../taskcard';
+import "./style.scss";
+import TaskCard from "../taskcard";
 
+// Actions
+import useTaskActions from "../../store/task/actions";
 
 const ColumnHeader = ({ title, color, number}) => {
   const [show, setShow] = useState(false);
@@ -55,13 +57,13 @@ const ProjectColumn = ({ title, color, number, id , tasks = [] }) => {
       <div className='project-column-header'>        
         <h5 className='title'>
           {title}
-          <span className='badge-counter' style={{ color }}>
+          <span className="badge-counter" style={{ color }}>
             {number}
           </span>
         </h5>
-        <div className='accordion-icon-container'>
+        <div className="accordion-icon-container">
           <FaCaretDown
-            className='accordion-icon'
+            className="accordion-icon"
             onClick={() => setShow(!show)}
           />
         </div>

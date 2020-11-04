@@ -17,8 +17,8 @@
   grid-template-columns: 80px 1fr;
   grid-template-rows: 80px 1fr;
   grid-template-areas:
-    'sidebar navbar'
-    'sidebar app';
+    "sidebar navbar"
+    "sidebar app";
   @include md {
     grid-template-rows: auto 1fr;
   }
@@ -26,9 +26,9 @@
 
 .app {
   grid-area: app;
-  /*   background: #f4f6fc;
-  min-height: calc(100vh - 80px);
-  min-width: calc(100vw - 80px); */
+  height: calc(100vh - 80px);
+  overflow-y: scroll;
+  background: #f4f6fc;
 }
 
 .title {
@@ -102,6 +102,10 @@ button {
   justify-content: space-between;
 }
 
+.justify-content-end {
+  justify-content: flex-end;
+}
+
 .flex-column {
   flex-direction: column;
 }
@@ -120,6 +124,9 @@ button {
 
 .font-weight-bolder {
   font-weight: bolder;
+}
+.font-weight-bold {
+  font-weight: bold;
 }
 
 .user-select-none {
@@ -282,4 +289,30 @@ button {
 
 .show-tasks {
   display: block !important;
+}
+
+.color-inherit {
+  color: inherit !important;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.checkbox-md {
+  transform: scale(1.3);
 }
