@@ -1,5 +1,5 @@
 import React, { memo, useState } from "react";
-
+import Color from "color";
 // Styles
 import "./style.scss";
 
@@ -12,6 +12,7 @@ function MonkeyAvatarBase(props) {
         className: "simple-avatar ".concat(props.className || ""),
         style: {
           background: props.color,
+          color: Color(props.color).luminosity() >= 0.5 ? "black" : "white",
           ...props.style,
         },
       }}

@@ -6,6 +6,32 @@ import faker from "faker";
 export default function useActions() {
   const [state, dispatch] = SprintStore.useSprint();
 
+  const getStatus = () => {
+    switch (Math.floor(Math.random() * (4 - 1)) + 1) {
+      case 1:
+        return "todo";
+      case 2:
+        return "working";
+      case 3:
+        return "done";
+      default:
+        break;
+    }
+  };
+
+  const getPriority = () => {
+    switch (Math.floor(Math.random() * (4 - 1)) + 1) {
+      case 1:
+        return "low";
+      case 2:
+        return "medium";
+      case 3:
+        return "hight";
+      default:
+        break;
+    }
+  };
+
   async function loadSprints() {
     try {
       dispatch({
@@ -40,13 +66,14 @@ export default function useActions() {
                   { length: Math.round(Math.random() * (49 - 0) + 0) },
                   (a, j) => ({
                     id: faker.random.uuid(),
+                    name: `MC-${j}`,
+                    status: getStatus(),
                     title: faker.random.words(
                       Math.round(Math.random() * (10 - 0) + 0)
                     ),
                     description: faker.lorem.paragraph(
                       Math.round(Math.random() * (10 - 0) + 0)
                     ),
-                    status: "done",
                     attachments: [],
                     comments: [],
                     assignee: {
@@ -75,10 +102,11 @@ export default function useActions() {
                     time_tracking: `${Math.round(
                       Math.random() * (10 - 0) + 0
                     )}w logged`,
-                    priority: "medium",
+                    priority: getPriority(),
                     components: [],
                     fix_versions: [],
-                    epic_link: "",
+                    epic_link: faker.git.commitMessage(),
+                    epic_color: faker.internet.color(),
                     completed_sprints: [],
                   })
                 ),
