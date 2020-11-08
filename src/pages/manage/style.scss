@@ -3,3 +3,90 @@
 .project-filter-container {
   margin: 25px 0;
 }
+
+.project-action-container {
+  display: flex;
+  align-items: center;
+  @include md {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  @include sm {
+    flex-direction: column;
+  }
+}
+
+.project-mode-name {
+  @include md {
+    margin-bottom: 10px;
+  }
+}
+
+.project-mode-name > h3 {
+  font-size: 28px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  color: #2e384d;
+}
+
+.project-tasks {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  @include lg {
+    justify-content: space-evenly;
+  }
+  @include md {
+    justify-content: center;
+  }
+}
+
+.user-filter {
+  margin: 5px 50px 2px;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  ul li {
+    display: inline-flex;
+  }
+
+  li {
+    float: left;
+  }
+
+  .icon-container {
+    background-color: rgb(19, 42, 145);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    margin: 1px;
+  }
+
+  .icon-container:hover {
+    background-color: #465981;
+    cursor: pointer;
+    transition: 0s;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .toggle {
+    width: 15px;
+    margin: 10px 11px 10px;
+    color: white;
+  }
+
+  input[type="checkbox"]:checked ~ .toggle {
+    visibility: visible;
+  }
+}
