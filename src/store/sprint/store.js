@@ -4,6 +4,8 @@ import actions from "./constants";
 
 const defaultState = {
   tasks: [],
+  sprints: [],
+  loadSprintsStatus: "idle",
 };
 
 const reducer = (state = defaultState, action = {}) => {
@@ -33,9 +35,9 @@ export function Provider({ children }) {
   );
 }
 
-export const TaskStore = {
+export const SprintStore = {
   State,
   Dispatch,
   Provider,
-  useTask: () => [useContext(State), useContext(Dispatch)],
+  useSprint: () => [useContext(State), useContext(Dispatch)],
 };

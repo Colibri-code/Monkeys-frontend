@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 
 // Styles
 import "./style.scss";
@@ -22,10 +22,15 @@ function MonkeyAvatarBase(props) {
 }
 
 function MonkeyAvatar(props) {
+  let [isImageSuccess, setIsImageSuccess] = useState(true);
+
   return props.user ? (
-    props.user.image ? (
+    props.user.image && isImageSuccess ? (
       <img
         {...{
+          onError: () => {
+            isImageSuccess = false;
+          },
           src: props.user.image,
           id: `user-avatar-${props.user.id}-id`,
           alt: `user-avatar-${props.user.id}-description`,

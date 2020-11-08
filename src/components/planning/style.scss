@@ -69,3 +69,13 @@
     color: white;
   }
 }
+
+.planning-sprint-container {
+  display: flex;
+  margin-left: -15px;
+  margin-right: -15px;
+  height: 50vh;
+  width: 100%;
+  flex-direction: column;
+  overflow-y: auto;
+}

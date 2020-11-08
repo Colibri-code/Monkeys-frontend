@@ -8,6 +8,7 @@ import { HistorialStore } from "./historial/store";
 import { UserSettingsStore } from "./userSettings/store";
 import { SettingsStore } from "./settings/store";
 import { TaskStore } from "./task/store";
+import { SprintStore } from "./sprint/store";
 
 const providers = [
   <AuthStore.Provider />,
@@ -17,6 +18,7 @@ const providers = [
   <UserSettingsStore.Provider />,
   <SettingsStore.Provider />,
   <TaskStore.Provider />,
+  <SprintStore.Provider />,
 ];
 
 const Store = ({ children: initial }) =>

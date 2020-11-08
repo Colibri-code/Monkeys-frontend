@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { memo, useCallback, useState, useEffect } from "react";
 import { IoIosSearch } from "react-icons/io";
 import faker from "faker";
 
@@ -11,10 +11,16 @@ import MonkeyAvatar from "../../components/monkeyAvatar";
 import MonkeyMenu from "../monkeyMenu";
 import MonkeyMenuItem from "../monkeyMenuItem";
 import MonkeyButtonBase from "../monkeyButtonBase";
+import PlanningSprint from "../planningSprint";
+
+// Local
+import usePlanningActions from "../../store/sprint/actions";
 
 function Planning(props) {
+  const { state: planningState, loadSprints } = usePlanningActions();
   const [isLatestUserOpen, setIsLatestUserOpen] = useState(false);
-  const users = Array.from({ length: 100 }, (v, i) => {
+  const [planningSearch, setPlanningSearch] = useState("");
+  const users = Array.from({ length: 99 }, (v, i) => {
     const newUser = {
       id: i + 1,
       first_name: faker.name.firstName(),
@@ -26,7 +32,16 @@ function Planning(props) {
     return newUser;
   });
 
-  console.log(users, "users");
+  const handleChange = useCallback((e) => {
+    switch (e.target.name) {
+      case "planningSearch":
+        setPlanningSearch(e.target.value);
+        break;
+
+      default:
+        break;
+    }
+  }, []);
 
   const handleClick = useCallback((e) => {
     switch (e.currentTarget.dataset.el_name) {
@@ -38,6 +53,14 @@ function Planning(props) {
     }
   }, []);
 
+  useEffect(() => {
+    loadSprints();
+    // eslint-disable-next-line
+  }, []);
+
+  console.log(planningState, "planningState");
+  console.log(users, "users");
+
   return (
     <div className="d-flex flex-column">
       {/* TOP PART */}
@@ -47,6 +70,9 @@ function Planning(props) {
             <MonkeyInput
               placeholder="Search by name, user..."
               className="overriding-input"
+              onChange={handleChange}
+              name="planningSearch"
+              value={planningSearch}
             />
             <button className="icon-search-button" id="monkeys-search-planning">
               <IoIosSearch className="icon-search-change" />
@@ -101,8 +127,20 @@ function Planning(props) {
           </MonkeyButtonBase>
         </div>
       </div>
-      <div className="row overflow-auto">
-        <div className="d-flex"></div>
+      <div className="planning-sprint-container">
+        {planningState.sprints
+          .filter(
+            (s) =>
+              s.name.toLowerCase().includes(planningSearch.toLowerCase()) ||
+              s.issues.some((issue) =>
+                `${issue.assignee.first_name}${issue.assignee.first_name}`
+                  .toLowerCase()
+                  .includes(planningSearch.toLowerCase())
+              )
+          )
+          .map((sf) => (
+            <PlanningSprint key={`planning-id-${sf.id}`} sprint={sf} />
+          ))}
       </div>
     </div>
   );
