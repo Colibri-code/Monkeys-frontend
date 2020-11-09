@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import "./style.scss";
 import BreadCrumb from "../../components/breadcrumb";
-import { FaUserAlt } from "react-icons/fa";
 import ProjectContainer from "../../containers/projectContainer";
 // Store actions
 import useTaskActions from "../../store/task/actions";

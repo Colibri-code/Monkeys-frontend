@@ -30,7 +30,7 @@ function MonkeyAvatar(props) {
       <img
         {...{
           onError: () => {
-            isImageSuccess = false;
+            setIsImageSuccess(false);
           },
           src: props.user.image,
           id: `user-avatar-${props.user.id}-id`,

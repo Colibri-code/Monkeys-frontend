@@ -1,5 +1,6 @@
-import React, { memo, useCallback, useState, useEffect } from "react";
+import React, { memo, useCallback, useState, useEffect, version } from "react";
 import { IoIosSearch } from "react-icons/io";
+import { FaHistory, FaBolt, FaTimes } from "react-icons/fa";
 import faker from "faker";
 
 // Styles
@@ -11,13 +12,16 @@ import MonkeyAvatar from "../../components/monkeyAvatar";
 import MonkeyMenu from "../monkeyMenu";
 import MonkeyMenuItem from "../monkeyMenuItem";
 import MonkeyButtonBase from "../monkeyButtonBase";
-import PlanningSprint from "../planningSprint";
+import PlanningSprint from "./planningSprint";
+import PlanningSprintTask from "./planningSprintTask";
 
 // Local
-import usePlanningActions from "../../store/sprint/actions";
+import useSprintActions from "../../store/sprint/actions";
 
 function Planning(props) {
-  const { state: planningState, loadSprints } = usePlanningActions();
+  const { state: sprintState, loadSprints } = useSprintActions();
+  const [versionsOpen, setVersionsOpen] = useState(false);
+  const [epicsOpen, setEpicsOpen] = useState(false);
   const [isLatestUserOpen, setIsLatestUserOpen] = useState(false);
   const [planningSearch, setPlanningSearch] = useState("");
   const users = Array.from({ length: 99 }, (v, i) => {
@@ -48,6 +52,12 @@ function Planning(props) {
       case "btnShowMenu":
         setIsLatestUserOpen((prev) => !prev);
         break;
+      case "btnVersions":
+        setVersionsOpen((prev) => !prev);
+        break;
+      case "btnEpics":
+        setEpicsOpen((prev) => !prev);
+        break;
       default:
         break;
     }
@@ -57,9 +67,6 @@ function Planning(props) {
     loadSprints();
     // eslint-disable-next-line
   }, []);
-
-  console.log(planningState, "planningState");
-  console.log(users, "users");
 
   return (
     <div className="d-flex flex-column">
@@ -127,20 +134,96 @@ function Planning(props) {
           </MonkeyButtonBase>
         </div>
       </div>
-      <div className="planning-sprint-container">
-        {planningState.sprints
-          .filter(
-            (s) =>
-              s.name.toLowerCase().includes(planningSearch.toLowerCase()) ||
-              s.issues.some((issue) =>
-                `${issue.assignee.first_name}${issue.assignee.first_name}`
-                  .toLowerCase()
-                  .includes(planningSearch.toLowerCase())
-              )
-          )
-          .map((sf) => (
-            <PlanningSprint key={`planning-id-${sf.id}`} sprint={sf} />
-          ))}
+      <div className="d-flex">
+        {/* 5% */}
+        {(!versionsOpen || !epicsOpen) && (
+          <div className="planning-sprint-sidebar">
+            {!versionsOpen && (
+              <MonkeyButtonBase
+                data-el_name="btnVersions"
+                onClick={handleClick}
+                className="d-flex monkeys-p-2 align-items-center justify-content-center overriding-monkeys-button-base"
+              >
+                <FaHistory />
+              </MonkeyButtonBase>
+            )}
+            {!epicsOpen && (
+              <MonkeyButtonBase
+                data-el_name="btnEpics"
+                onClick={handleClick}
+                className="d-flex monkeys-p-2 align-items-center justify-content-center overriding-monkeys-button-base"
+              >
+                <FaBolt />
+              </MonkeyButtonBase>
+            )}
+          </div>
+        )}
+        {/* 16.67% */}
+        {versionsOpen && (
+          <div className="planning-version-container shadow">
+            <div className="planning-container-title">
+              <span className="monkeys-text-gray">Versions</span>
+              <small
+                className="monkeys-text-secondary-blue pointer"
+                onClick={handleClick}
+                data-el_name="btnCreateNewVersion"
+              >
+                Create version
+              </small>
+              <MonkeyButtonBase
+                data-el_name="btnVersions"
+                onClick={handleClick}
+                className="d-flex monkeys-p-2 align-items-center justify-content-center overriding-monkeys-button-base"
+              >
+                <FaTimes height={16} width={16} className="pointer" />
+              </MonkeyButtonBase>
+            </div>
+          </div>
+        )}
+        {/* 16.67% */}
+        {epicsOpen && (
+          <div className="planning-epic-container shadow">
+            <div className="planning-container-title">
+              <span className="monkeys-text-gray">Epics</span>
+              <small
+                className="monkeys-text-secondary-blue pointer"
+                onClick={handleClick}
+                data-el_name="btnCreateNewEpic"
+              >
+                Create epic
+              </small>
+              <MonkeyButtonBase
+                data-el_name="btnEpics"
+                onClick={handleClick}
+                className="d-flex monkeys-p-2 align-items-center justify-content-center overriding-monkeys-button-base"
+              >
+                <FaTimes height={16} width={16} className="pointer" />
+              </MonkeyButtonBase>
+            </div>
+          </div>
+        )}
+        {/* 100% == FLEX */}
+        <div className="planning-sprint-container">
+          {sprintState.sprints
+            .filter(
+              (s) =>
+                s.name.toLowerCase().includes(planningSearch.toLowerCase()) ||
+                s.issues.some((issue) =>
+                  `${issue.assignee.first_name}${issue.assignee.first_name}`
+                    .toLowerCase()
+                    .includes(planningSearch.toLowerCase())
+                )
+            )
+            .map((sf) => (
+              <PlanningSprint key={`planning-id-${sf.id}`} sprint={sf} />
+            ))}
+        </div>
+        {/* 33.3% */}
+        {sprintState.selectedIssue.id && (
+          <div className="planning-task-container">
+            <PlanningSprintTask />
+          </div>
+        )}
       </div>
     </div>
   );

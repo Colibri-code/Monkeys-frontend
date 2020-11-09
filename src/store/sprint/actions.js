@@ -51,6 +51,7 @@ export default function useActions() {
 
       //   API CALL
       setTimeout(() => {
+        let sprint_id = faker.random.uuid();
         dispatch({
           type: actions.SET_VAL,
           payload: {
@@ -58,7 +59,7 @@ export default function useActions() {
             value: Array.from(
               { length: Math.round(Math.random() * (99 - 0) + 0) },
               (v, i) => ({
-                id: faker.random.uuid(),
+                id: sprint_id,
                 name: `MC-${faker.random.uuid()}`,
                 start_date: faker.date.past().toLocaleString("en-US"),
                 end_date: faker.date.future().toLocaleString("en-US"),
@@ -66,6 +67,7 @@ export default function useActions() {
                   { length: Math.round(Math.random() * (49 - 0) + 0) },
                   (a, j) => ({
                     id: faker.random.uuid(),
+                    sprint_id,
                     name: `MC-${j}`,
                     status: getStatus(),
                     title: faker.random.words(
@@ -108,6 +110,7 @@ export default function useActions() {
                     epic_link: faker.git.commitMessage(),
                     epic_color: faker.internet.color(),
                     completed_sprints: [],
+                    watchers: [],
                   })
                 ),
               })
@@ -142,9 +145,20 @@ export default function useActions() {
     }
   }
 
+  function setVal({ key, value }) {
+    dispatch({
+      type: actions.SET_VAL,
+      payload: {
+        key,
+        value,
+      },
+    });
+  }
+
   return {
     state,
     dispatch,
     loadSprints,
+    setVal,
   };
 }

@@ -5,8 +5,8 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import { MdKeyboardArrowDown, MdKeyboardArrowRight } from "react-icons/md";
 
 // Components
-import MonkeyAvatar from "../monkeyAvatar";
-import MonkeyButtonBase from "../monkeyButtonBase";
+import MonkeyAvatar from "../../monkeyAvatar";
+import MonkeyButtonBase from "../../monkeyButtonBase";
 import PlanningSprintIssue from "../planningSprintIssue";
 
 // Style
@@ -14,14 +14,6 @@ import "./style.scss";
 
 function PlanningSprint(props) {
   const [isSprintToggled, setIsSprintToggled] = useState(false);
-  const handleClick = useCallback((e) => {
-    switch (e.currentTarget.dataset.el_name) {
-      case "btnShowIssueMembers":
-        break;
-      default:
-        break;
-    }
-  }, []);
   return (
     <div className="d-flex flex-column monkeys-p-3">
       <div className="d-flex align-items-center">
@@ -56,12 +48,7 @@ function PlanningSprint(props) {
             ))}
 
             {props.sprint.issues.length - 4 > 0 && (
-              <MonkeyAvatar
-                color="#dfe1e6"
-                className="font-size-12"
-                data-el_name="btnShowIssueMembers"
-                onClick={handleClick}
-              >
+              <MonkeyAvatar color="#dfe1e6" className="font-size-12">
                 + {props.sprint.issues.length - 4}
               </MonkeyAvatar>
             )}

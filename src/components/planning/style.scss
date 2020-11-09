@@ -72,10 +72,49 @@
 
 .planning-sprint-container {
   display: flex;
-  margin-left: -15px;
-  margin-right: -15px;
-  height: 50vh;
-  width: 100%;
+  height: calc(100vh - 320px);
+  flex: 1;
   flex-direction: column;
   overflow-y: auto;
+}
+
+.planning-version-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 320px);
+  flex: 0.33;
+  font-size: 12px;
+  background: white;
+  border: 1px solid #ececec;
+  border-bottom: 0;
+  border-left: 0;
+}
+.planning-epic-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 320px);
+  flex: 0.33;
+  font-size: 12px;
+  background: white;
+  border: 1px solid #ececec;
+  border-bottom: 0;
+  border-left: 0;
+}
+
+.planning-task-container {
+  display: flex;
+  height: calc(100vh - 320px);
+  flex: 0.33;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.planning-container-title {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-bottom: 1px solid #ececec;
 }
