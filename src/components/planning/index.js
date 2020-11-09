@@ -1,5 +1,6 @@
-import React, { memo, useCallback, useState } from "react";
+import React, { memo, useCallback, useState, useEffect, version } from "react";
 import { IoIosSearch } from "react-icons/io";
+import { FaHistory, FaBolt, FaTimes } from "react-icons/fa";
 import faker from "faker";
 
 // Styles
@@ -11,10 +12,19 @@ import MonkeyAvatar from "../../components/monkeyAvatar";
 import MonkeyMenu from "../monkeyMenu";
 import MonkeyMenuItem from "../monkeyMenuItem";
 import MonkeyButtonBase from "../monkeyButtonBase";
+import PlanningSprint from "./planningSprint";
+import PlanningSprintTask from "./planningSprintTask";
+
+// Local
+import useSprintActions from "../../store/sprint/actions";
 
 function Planning(props) {
+  const { state: sprintState, loadSprints } = useSprintActions();
+  const [versionsOpen, setVersionsOpen] = useState(false);
+  const [epicsOpen, setEpicsOpen] = useState(false);
   const [isLatestUserOpen, setIsLatestUserOpen] = useState(false);
-  const users = Array.from({ length: 100 }, (v, i) => {
+  const [planningSearch, setPlanningSearch] = useState("");
+  const users = Array.from({ length: 99 }, (v, i) => {
     const newUser = {
       id: i + 1,
       first_name: faker.name.firstName(),
@@ -26,16 +36,36 @@ function Planning(props) {
     return newUser;
   });
 
-  console.log(users, "users");
+  const handleChange = useCallback((e) => {
+    switch (e.target.name) {
+      case "planningSearch":
+        setPlanningSearch(e.target.value);
+        break;
+
+      default:
+        break;
+    }
+  }, []);
 
   const handleClick = useCallback((e) => {
     switch (e.currentTarget.dataset.el_name) {
       case "btnShowMenu":
         setIsLatestUserOpen((prev) => !prev);
         break;
+      case "btnVersions":
+        setVersionsOpen((prev) => !prev);
+        break;
+      case "btnEpics":
+        setEpicsOpen((prev) => !prev);
+        break;
       default:
         break;
     }
+  }, []);
+
+  useEffect(() => {
+    loadSprints();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -47,6 +77,9 @@ function Planning(props) {
             <MonkeyInput
               placeholder="Search by name, user..."
               className="overriding-input"
+              onChange={handleChange}
+              name="planningSearch"
+              value={planningSearch}
             />
             <button className="icon-search-button" id="monkeys-search-planning">
               <IoIosSearch className="icon-search-change" />
@@ -101,8 +134,96 @@ function Planning(props) {
           </MonkeyButtonBase>
         </div>
       </div>
-      <div className="row overflow-auto">
-        <div className="d-flex"></div>
+      <div className="d-flex">
+        {/* 5% */}
+        {(!versionsOpen || !epicsOpen) && (
+          <div className="planning-sprint-sidebar">
+            {!versionsOpen && (
+              <MonkeyButtonBase
+                data-el_name="btnVersions"
+                onClick={handleClick}
+                className="d-flex monkeys-p-2 align-items-center justify-content-center overriding-monkeys-button-base"
+              >
+                <FaHistory />
+              </MonkeyButtonBase>
+            )}
+            {!epicsOpen && (
+              <MonkeyButtonBase
+                data-el_name="btnEpics"
+                onClick={handleClick}
+                className="d-flex monkeys-p-2 align-items-center justify-content-center overriding-monkeys-button-base"
+              >
+                <FaBolt />
+              </MonkeyButtonBase>
+            )}
+          </div>
+        )}
+        {/* 16.67% */}
+        {versionsOpen && (
+          <div className="planning-version-container shadow">
+            <div className="planning-container-title">
+              <span className="monkeys-text-gray">Versions</span>
+              <small
+                className="monkeys-text-secondary-blue pointer"
+                onClick={handleClick}
+                data-el_name="btnCreateNewVersion"
+              >
+                Create version
+              </small>
+              <MonkeyButtonBase
+                data-el_name="btnVersions"
+                onClick={handleClick}
+                className="d-flex monkeys-p-2 align-items-center justify-content-center overriding-monkeys-button-base"
+              >
+                <FaTimes height={16} width={16} className="pointer" />
+              </MonkeyButtonBase>
+            </div>
+          </div>
+        )}
+        {/* 16.67% */}
+        {epicsOpen && (
+          <div className="planning-epic-container shadow">
+            <div className="planning-container-title">
+              <span className="monkeys-text-gray">Epics</span>
+              <small
+                className="monkeys-text-secondary-blue pointer"
+                onClick={handleClick}
+                data-el_name="btnCreateNewEpic"
+              >
+                Create epic
+              </small>
+              <MonkeyButtonBase
+                data-el_name="btnEpics"
+                onClick={handleClick}
+                className="d-flex monkeys-p-2 align-items-center justify-content-center overriding-monkeys-button-base"
+              >
+                <FaTimes height={16} width={16} className="pointer" />
+              </MonkeyButtonBase>
+            </div>
+          </div>
+        )}
+        {/* 100% == FLEX */}
+        <div className="planning-sprint-container">
+          {sprintState.sprints
+            .filter(
+              (s) =>
+                s.name.toLowerCase().includes(planningSearch.toLowerCase()) ||
+                s.issues.some((issue) =>
+                  `${issue.assignee.first_name}${issue.assignee.first_name}`
+                    .toLowerCase()
+                    .includes(planningSearch.toLowerCase())
+                )
+            )
+            .map((sf) => (
+              <PlanningSprint key={`planning-id-${sf.id}`} sprint={sf} />
+            ))}
+        </div>
+        {/* 33.3% */}
+        {sprintState.selectedIssue.id && (
+          <div className="planning-task-container">
+            <PlanningSprintTask />
+          </div>
+        )}
       </div>
     </div>
   );

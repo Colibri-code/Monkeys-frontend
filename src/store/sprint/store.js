@@ -4,6 +4,43 @@ import actions from "./constants";
 
 const defaultState = {
   tasks: [],
+  sprints: [],
+  loadSprintsStatus: "idle",
+  selectedIssue: {
+    id: "",
+    sprint_id: "",
+    name: "",
+    status: "",
+    title: "",
+    description: "",
+    attachments: [],
+    comments: [],
+    assignee: {
+      id: "",
+      first_name: "",
+      last_name: "",
+      image: null,
+      color: "",
+    },
+    reporter: {
+      id: "",
+      first_name: "",
+      last_name: "",
+      image: null,
+      color: "",
+    },
+    development: "",
+    labels: [],
+    original_estimate: 0,
+    time_tracking: "",
+    priority: "",
+    components: [],
+    fix_versions: [],
+    epic_link: "",
+    epic_color: "",
+    completed_sprints: [],
+    watchers: [],
+  },
 };
 
 const reducer = (state = defaultState, action = {}) => {
@@ -33,9 +70,9 @@ export function Provider({ children }) {
   );
 }
 
-export const TaskStore = {
+export const SprintStore = {
   State,
   Dispatch,
   Provider,
-  useTask: () => [useContext(State), useContext(Dispatch)],
+  useSprint: () => [useContext(State), useContext(Dispatch)],
 };
