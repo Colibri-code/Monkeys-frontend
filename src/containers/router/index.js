@@ -6,6 +6,7 @@ import AllEnviroment from '../../pages/allEnviroment';
 import DevEnviroment from '../../pages/devEnviroment';
 import Login from '../../pages/login';
 import Manage from '../../pages/manage';
+import Subscription from '../../pages/subscription';
 
 //components
 import Historial from '../../components/historial';
@@ -42,6 +43,7 @@ function Router() {
               {historialState.isHistorialVisible && <Historial />}
               <Switch>
                 <Route exact path='/' component={Manage} />
+                <Route path='/subscription' component={Subscription} />
                 <Route path='/all-enviroment' component={AllEnviroment} />
                 <Route path='/dev-enviroment' component={DevEnviroment} />
                 <Route path='/task-detail/:id' component={TaskDetail} />
