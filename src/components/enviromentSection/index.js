@@ -8,8 +8,8 @@ import PopUp from './popUp.js';
 
 const cards= [
     {id: 1, title: 'Development URL', code: 'Code', database: 'Database', files: 'Files'},
-    {id: 2, title: 'Stage URL', code: 'code', database: 'Database', files: 'files'},
-    {id: 3, title: 'Production URL', code: 'code', database: 'Database', files: 'files'}    
+    {id: 2, title: 'Stage URL'},
+    {id: 3, title: 'Production URL'}    
 ];
 
 const EnviromentSection = () =>{
@@ -21,15 +21,16 @@ const EnviromentSection = () =>{
                     <a href="#" className="action-button">wiki</a>
                     <a id="clone" href="#" className="action-button">clone</a>
                 </div>
-            </div>
-            
-
+            </div>            
             <section className="section-container">
                 <div className="cards-section"> 
-                    {cards.map(({id, title}, i)=>(
+                    {cards.map(({id, title, code, database, files}, i)=>(
                         <EnviromentCard
                         id={id}
                         title={title}
+                        code={code}
+                        database={database}
+                        files={files}
                         key={i}
                     />
                     ))}                                        
@@ -51,20 +52,18 @@ const EnviromentCard = (props) => {
     return(
     <div 
         id={props.id}
-        className='enviroment-card'>
-        <input
-            type="button"
-            value="Click to Open Popup"
-            onClick={togglePopUp}
-        />
-
+        className='enviroment-card'
+        onClick={togglePopUp}
+    >
+            {/*
+                <input
+                type="button"
+                value="Click to Open Popup"
+                onClick={togglePopUp}
+                />                
+            */}
         {isOpen && <PopUp
-            content={<>
-                <b>Design your Popup</b>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <button onClick={togglePopUp} >Test button</button>
-            </>}
-            handleClose={togglePopUp}
+            handleClose={togglePopUp}    
         />}
 
         <h3 className='github-title'>{props.title}</h3>    
@@ -81,7 +80,7 @@ const EnviromentCard = (props) => {
                         }
                     }
                 >
-                    <li><h4 className='github-data-history '>Code</h4></li>
+                    <li><h4 className='github-data-history '>{props.code}</h4></li>
                 </div>
                 <div 
                     className=""
@@ -91,7 +90,7 @@ const EnviromentCard = (props) => {
                         }
                     }
                 >
-                    <li><h4 className='github-data-history '>Databases</h4></li>
+                    <li><h4 className='github-data-history '>{props.database}</h4></li>
                 </div>
                 <div 
                     className=""
@@ -100,7 +99,7 @@ const EnviromentCard = (props) => {
                         }
                     }
                 >
-                    <li><h4 className='github-data-history '>Files</h4></li>
+                    <li><h4 className='github-data-history '>{props.files}</h4></li>
                 </div>            
             </ul>                    
         </div>    
