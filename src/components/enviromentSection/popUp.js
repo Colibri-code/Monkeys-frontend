@@ -1,12 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import {FaArrowUp} from "react-icons/fa";
  
-const PopUp = props => {
-  const [isOpen, setIsOpen] = useState(false);
-
-    const togglePopUp =()=>{
-        setIsOpen(!isOpen);
-    }
+const PopUp = props => {      
   return (
     <div className="popup-box">
       <div className="box">

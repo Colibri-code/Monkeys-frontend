@@ -50,60 +50,44 @@ const EnviromentCard = (props) => {
     }
 
     return(
-    <div 
-        id={props.id}
-        className='enviroment-card'
-        onClick={togglePopUp}
-    >
-            {/*
-                <input
-                type="button"
-                value="Click to Open Popup"
-                onClick={togglePopUp}
-                />                
-            */}
+    <section>
+        <div 
+            id={props.id}
+            className='enviroment-card'
+            onClick={togglePopUp}
+        >
+            <h3 className='github-title'>{props.title}</h3>    
+            <div 
+                className="enviroment-card-content"
+                onDragOver={(e)=>{e.preventDefault()}}                
+            >
+                <ul>
+                    <div 
+                        className="draggable-item"                                             
+                        draggable
+                    >
+                        <li><h4 className='github-data-history '>{props.code}</h4></li>
+                    </div>
+                    <div 
+                        className="draggable-item"
+                        draggable                        
+                    >
+                        <li><h4 className='github-data-history '>{props.database}</h4></li>
+                    </div>
+                    <div 
+                        className="draggable-item"
+                        draggable                        
+                    >
+                        <li><h4 className='github-data-history '>{props.files}</h4></li>
+                    </div>            
+                </ul>                    
+            </div>    
+        </div>        
         {isOpen && <PopUp
             handleClose={togglePopUp}    
         />}
-
-        <h3 className='github-title'>{props.title}</h3>    
-        <div 
-            className="enviroment-card-content"
-            onDragOver={(e)=>{e.preventDefault()}}
-        >
-            <ul>
-                <div 
-                    className=""
-                    draggable
-                    onDragStart={(e)=>{
-                            e.dataTransfer.setData("id", props.id);                    
-                        }
-                    }
-                >
-                    <li><h4 className='github-data-history '>{props.code}</h4></li>
-                </div>
-                <div 
-                    className=""
-                    draggable
-                    onDragStart={(e)=>{
-                            e.dataTransfer.setData("id", props.id);                    
-                        }
-                    }
-                >
-                    <li><h4 className='github-data-history '>{props.database}</h4></li>
-                </div>
-                <div 
-                    className=""
-                    onDragStart={(e)=>{
-                            e.dataTransfer.setData("id", props.id);                    
-                        }
-                    }
-                >
-                    <li><h4 className='github-data-history '>{props.files}</h4></li>
-                </div>            
-            </ul>                    
-        </div>    
-    </div>
+    </section>
+    
   );
 }
 
