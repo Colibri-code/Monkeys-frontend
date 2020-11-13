@@ -3,8 +3,7 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 
 import './style.scss';
 import PopUp from './popUp.js';
-import { identity } from 'lodash';
-import { FaList } from 'react-icons/fa';
+
 
 const EnviromentCard = ({title, code, database, files, index }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +25,7 @@ const EnviromentCard = ({title, code, database, files, index }) => {
                         ref={provided.innerRef}
                         {...provided.droppableProps}                                
                     >   
-                        <ul>
+                        {/* <ul>
                             <DraggableItem
                             title={'code'}
                             value={code}
@@ -42,7 +41,7 @@ const EnviromentCard = ({title, code, database, files, index }) => {
                             value={files}
                             index={2}
                             />                            
-                        </ul> 
+                        </ul>  */}
                         {provided.placeholder}                   
                     </div>
                 )}
@@ -51,14 +50,12 @@ const EnviromentCard = ({title, code, database, files, index }) => {
         {isOpen && <PopUp
             handleClose={togglePopUp}    
         />}
-    </section>
-    
+    </section>    
   );
 }
 
 
 const DraggableItem =({title, value, index}) => {
-
     return(
     <Draggable draggableId={title} index={index}>
         {provided =>(

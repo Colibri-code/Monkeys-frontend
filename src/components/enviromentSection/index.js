@@ -31,27 +31,11 @@ const EnviromentSection = () =>{
         }   
     });        
     const onDragEnd = ({destination, source})=>{
+        //Next three lines avoid dropping the item in undroppable areas to avoid errors  
         if (!destination) return;
         if ( destination.index === source.index && destination.droppableId === source.droppableId) {
             return;
         }
-
-        // Creating a copy of item before removing it from state
-        const itemCopy = { ...columns[source.droppableId].items[source.index] };
-        itemCopy.state = destination.droppableId;
-        setColumns(prev => {
-            prev = { ...prev };
-            // Remove from previous items array
-            prev[source.droppableId].items.splice(source.index, 1);
-            // Adding to new items array location
-            prev[destination.droppableId].items.splice(
-                destination.index,
-                0,
-                itemCopy
-            );
-            return prev;
-        });
-
     }
 
     return(
@@ -63,9 +47,9 @@ const EnviromentSection = () =>{
                     <a id="clone" href="#" className="action-button">clone</a>
                 </div>
             </div>            
-            <section className="section-container">                           
-                <div className="cards-section">
-                    <DragDropContext onDragEnd={onDragEnd}>
+            <section className="section-container">  
+                <DragDropContext onDragEnd={onDragEnd}>
+                    <div className="cards-section">                    
                         { Object.keys(columns).map((column, index) => (
                             <EnviromentCard                                                                
                                 {...columns[column]}                                
@@ -73,9 +57,9 @@ const EnviromentSection = () =>{
                                 key={index}                                                                
                                 />)
                         )}        
-                        <CreateEnviromentCard/>        
-                    </DragDropContext>
-                </div>
+                        <CreateEnviromentCard/>                            
+                    </div>
+                </DragDropContext>
             </section>        
         </div>
     );
