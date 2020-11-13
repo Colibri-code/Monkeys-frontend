@@ -1,18 +1,59 @@
 import React, {useState} from 'react';
-import {FaPlus} from "react-icons/fa";
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import './style.scss';
-import PopUp from './popUp.js';
-//import EnviromentCard from '../enviromentcard';
-
-
-const cards= [
-    {id: 1, title: 'Development URL', code: 'Code', database: 'Database', files: 'Files'},
-    {id: 2, title: 'Stage URL'},
-    {id: 3, title: 'Production URL'}    
-];
+import Cards from './cards.js';
+import EnviromentCard from './enviromentCard.js';
+import CreateEnviromentCard from './createCard.js';
 
 const EnviromentSection = () =>{
+    const [columns, setColumns] = useState({
+        DevelopmentURL:{
+            id: 1,
+            title:'Development URL',
+            code: 'Code',
+            database: 'Database',
+            files: 'Files'
+        },
+        StageURL:{
+            id: 2,
+            title:'Stage URL',
+            code: '',
+            database: '',
+            files: ''
+        },
+        ProductionURL:{
+            id: 3,
+            title:'Production URL',
+            code: '',
+            database: '',
+            files: ''
+        }   
+    });        
+    const onDragEnd = ({destination, source})=>{
+        if (!destination) return;
+        if ( destination.index === source.index && destination.droppableId === source.droppableId) {
+            return;
+        }
+
+        // Creating a copy of item before removing it from state
+        const itemCopy = { ...columns[source.droppableId].items[source.index] };
+        itemCopy.state = destination.droppableId;
+        setColumns(prev => {
+            prev = { ...prev };
+            // Remove from previous items array
+            prev[source.droppableId].items.splice(source.index, 1);
+            // Adding to new items array location
+            prev[destination.droppableId].items.splice(
+                destination.index,
+                0,
+                itemCopy
+            );
+            return prev;
+        });
+
+    }
+
     return(
         <div className="main-container">
             <div className="header-container">
@@ -22,91 +63,21 @@ const EnviromentSection = () =>{
                     <a id="clone" href="#" className="action-button">clone</a>
                 </div>
             </div>            
-            <section className="section-container">
-                <div className="cards-section"> 
-                    {cards.map(({id, title, code, database, files}, i)=>(
-                        <EnviromentCard
-                        id={id}
-                        title={title}
-                        code={code}
-                        database={database}
-                        files={files}
-                        key={i}
-                    />
-                    ))}                                        
-                    <CreateEnviromentCard/>
+            <section className="section-container">                           
+                <div className="cards-section">
+                    <DragDropContext onDragEnd={onDragEnd}>
+                        { Object.keys(columns).map((column, index) => (
+                            <EnviromentCard                                                                
+                                {...columns[column]}                                
+                                index={index}
+                                key={index}                                                                
+                                />)
+                        )}        
+                        <CreateEnviromentCard/>        
+                    </DragDropContext>
                 </div>
             </section>        
         </div>
     );
 }
-
-
-const EnviromentCard = (props) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const togglePopUp =()=>{
-        setIsOpen(!isOpen);
-    }
-
-    return(
-    <section>
-        <div 
-            id={props.id}
-            className='enviroment-card'
-            onClick={togglePopUp}
-        >
-            <h3 className='github-title'>{props.title}</h3>    
-            <div 
-                className="enviroment-card-content"
-                onDragOver={(e)=>{e.preventDefault()}}                
-            >
-                <ul>
-                    <div 
-                        className="draggable-item"                                             
-                        draggable
-                    >
-                        <li><h4 className='github-data-history '>{props.code}</h4></li>
-                    </div>
-                    <div 
-                        className="draggable-item"
-                        draggable                        
-                    >
-                        <li><h4 className='github-data-history '>{props.database}</h4></li>
-                    </div>
-                    <div 
-                        className="draggable-item"
-                        draggable                        
-                    >
-                        <li><h4 className='github-data-history '>{props.files}</h4></li>
-                    </div>            
-                </ul>                    
-            </div>    
-        </div>        
-        {isOpen && <PopUp
-            handleClose={togglePopUp}    
-        />}
-    </section>
-    
-  );
-}
-
-
-const CreateEnviromentCard = () =>{
-    return(
-        <div 
-            id={20}
-            className='enviroment-card'>
-            <h3 className='github-title'>Create</h3>    
-            <div className="enviroment-card-content">                
-                <h4 className='github-data-history '>Create Custom </h4>                
-                <h4 className='github-data-history '>Enviroment</h4>
-                <h4 className='github-data-history '><FaPlus/></h4>
-            </div>    
-        </div>
-    );
-}
-
-
-
 export default EnviromentSection;
